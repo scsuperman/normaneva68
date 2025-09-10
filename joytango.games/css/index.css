@@ -1,0 +1,254 @@
+ * { box-sizing: border-box; }
+.heart{
+  width: 0.2rem !important;
+}
+
+#app{
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+.main>div{
+  margin-top: 0.4rem;
+}
+
+.main .first-game{
+  margin-top: 0;
+}
+
+.popular .games{
+  margin-top: 0.2rem;
+}
+
+.popular .games,
+.first-game{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.popular .games .item,
+.first-game .item{
+  width: 1.1rem;
+  margin-left: 0.11rem;
+  margin-bottom: 0.1rem;
+  position: relative;
+}
+
+.popular .games img,
+.first-game img{
+  width: 1.1rem;
+  border-radius: 0.15rem;
+}
+
+.popular .games .item .item-content,
+.first-game .item .item-content{
+  margin-top: 0.1rem;
+  font-size: 0.14rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  font-weight: bold;
+  -webkit-box-orient: vertical;
+}
+
+.popular .games .item .item-playnumber,
+.first-game .item .item-playnumber{
+  margin-top: 0.04rem;
+  font-size: 0.12rem;
+}
+
+.popular .games .mask,
+.first-game .mask{
+  position: absolute;
+  top: 0.05rem;
+  right: 0.05rem;
+  background: #fff;
+  opacity: 0.7;
+  width: 0.25rem;
+  height: 0.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.04rem;
+}
+
+.title{
+  font-weight: 600;
+  font-size: 0.18rem;
+  text-align: center;
+}
+
+.new-releases .games{
+  margin-top: 0.2rem;
+  display: flex;
+  padding-left: 0.1rem;
+}
+
+.new-releases .item{
+  width: 0.8rem;
+  position: relative;
+  margin-right: 0.11rem;
+}
+
+.new-releases .item .item-content{
+  margin-top: 0.06rem;
+  font-size: 0.14rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.new-releases img{
+  width: 0.8rem;
+  border-radius: 0.15rem;
+}
+
+.new-releases .mask{
+  position: absolute;
+  top: 0.05rem;
+  right: 0.05rem;
+  background: #fff;
+  opacity: 0.7;
+  width: 0.25rem;
+  height: 0.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.04rem;
+}
+
+.quick .quick-games{
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  margin-top: 0.2rem;
+}
+
+.quick .quick-games .quick-item{
+  position: relative;
+  margin-left: 0.1rem;
+}
+
+.quick .quick-games .quick-item img{
+  width: 1.56rem;
+  border-radius: 0.1rem;
+  image-rendering:-moz-crisp-edges;
+  image-rendering:-o-crisp-edges;
+  image-rendering:-webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode:nearest-neighbor;
+}
+
+.quick .quick-games .quick-item .mask{
+  position: absolute;
+  top: 0.05rem;
+  right: 0.05rem;
+  background: #fff;
+  opacity: 0.7;
+  width: 0.25rem;
+  height: 0.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.04rem;
+}
+
+.quick .quick-games .quick-more{
+  height: 1.56rem;
+  margin-left: 0.1rem;
+  border-radius: 0.1rem;
+  background: #5cdbd3;
+}
+
+.quick .quick-games .quick-more div:nth-child(1){
+  margin-top: 0.6rem;
+}
+
+.quick .quick-games .quick-more div{
+  width: 1.56rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quick .quick-games .quick-more img{
+  width: 0.3rem;
+}
+
+
+.our .our-item{
+  display: flex;
+  align-items: center;
+  border: 1px solid rgb(230, 218, 218);
+  margin: 0.07rem;
+  border-radius: 0.04rem;
+  padding: 0.05rem 0;
+}
+
+.our .our-item .out-item-img{
+  padding: 0.05rem;
+}
+
+.our .our-item .out-item-img img{
+  width: 0.56rem;
+  height: 0.56rem;
+  border-radius: 0.1rem;
+}
+
+.our .our-item .content{
+  padding-left: 0.1rem;
+  font-size: 0.14rem;
+  width: 1.71rem;
+  flex: 1;
+}
+
+.our .our-item .content .name{
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.our .our-item .content .type{
+  font-size: 0.12rem;
+  margin-top: 0.03rem;
+  color: #595959;
+}
+
+.our .our-item .content .number{
+  font-size: 0.12rem;
+  color: #262626;
+  font-weight:bold
+}
+
+.our .our-item .play{
+  background: #5cdbd3;
+  color: #fff;
+  border-radius: 0.06rem;
+  padding: 0.05rem 0.08rem;
+  margin-right: 0.05rem;
+  cursor: pointer;
+}
+
+.our .our_more_games{
+  margin: 0.07rem;
+  border-radius: 0.05rem;
+  border:1px solid #5cdbd3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.15rem;
+  font-weight: 600;
+  font-size: 0.18rem;
+  color: #5cdbd3;
+  box-sizing: border-box;
+}

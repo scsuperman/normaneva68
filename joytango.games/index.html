@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>GameCastle</title>
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="./css/mixin.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4968696535823847"
+     crossorigin="anonymous"></script>
+</head>
+<script src="./js/rem_adaptive.js"></script>
+
+<style>
+  [v-cloak] {
+    display: none;
+  }
+</style>
+
+<body>
+  <div id="app" v-cloak>
+    <header>
+      <img src="./img/list.png" @click="handleMenubox">
+      <div @click="handleToHome">
+        <span>
+          GameCastle
+        </span>
+      </div>
+      <img src="./img/search.png" @click="handleSearchStatus">
+    </header>
+    
+    <div class="menubox">
+      <div class="type_list">
+        <div class="list_item" @click="handleToLikeGames">
+          <img src="./img/like.png">
+          <span>Like</span>
+        </div>
+        <div class="list_item" v-for="(item,index) in typeListData" @click="handleToCategory(item)"
+          :key="item.gameTypeId">
+          <img :src="imgs[index]">
+          <span>{{item.gameTypeName}}</span>
+        </div>
+      </div>
+      <div class="menu_footer">
+        <div class="line"></div>
+        <div class="title">
+          Play HTML5 games for free!
+        </div>
+        <div class="about">
+          @2025 Ludigames
+          <br>
+          Powered by Gameloft
+        </div>
+      </div>
+    </div>
+
+    <div class="menu_bg" @click="handleMenubox" v-show="menuboxStatus"></div>
+    <div class="search" v-show="searchStatus">
+      <div class="header">
+        <img src="./img/search02.png">
+        <input type="text" v-model="search" @input="getSearchGameListData" placeholder="Search by game title">
+        <img src="./img/close.png" @click="handleSearchStatus">
+      </div>
+      <div class="popular">
+        Popular Searches
+      </div>
+      <div class="search_games">
+        <div class="search_game_item" @click="handlePlayGame(item)" v-for="item in searchGameList" :key="item.gameId">
+          <img :src="item.gameLogo">
+          <div>{{item.gameName}}</div>
+          <span>Action</span>
+        </div>
+      </div>
+    </div>
+    <div class="main">
+      <div class="first-game">
+        <div class="item" v-for="item in gameListData" :key="item.gameId">
+          <div class="item-img">
+            <a href="#" @click.prevent="handlePlayGame(item)">
+              <img :src="item.gameLogo">
+            </a>
+            <div class="mask">
+              <img v-if="item.like" class="heart" src="./img/heart_red.png" @click="handleMyLikeGame(item)">
+              <img v-else class="heart" src="./img/heart.png" @click="handleMyLikeGame(item)">
+            </div>
+          </div>
+          <div class="item-content">
+            {{item.gameName}}
+          </div>
+          <div class="item-playnumber">
+            {{(item.gamePlayNumber/10000).toFixed(2)}}M PLAYS
+          </div>
+        </div>
+        <div class="more-games" @click="handleMoreGames('first')">
+          MORE GAMES
+        </div>
+      </div>
+      
+      <div class="new-releases">
+        <div class="title">
+          NEW RELEASES
+        </div>
+        <div class="games">
+          <div class="item" v-for="item in newGameList" :key="item.gameId">
+            <div class="item-img">
+              <a href="#" @click.prevent="handlePlayGame(item)">
+                <img :src="item.gameLogo">
+              </a>
+              <div class="mask">
+                <img v-if="item.like" class="heart" src="./img/heart_red.png" @click="handleMyLikeGame(item)">
+                <img v-else class="heart" src="./img/heart.png" @click="handleMyLikeGame(item)">
+              </div>
+            </div>
+            <div class="item-content">
+              {{item.gameName}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="popular">
+        <div class="title">
+          MOST POPULAR
+        </div>
+        <div class="games">
+          <div class="item" v-for="item in mostGameList" :key="item.gameId">
+            <div class="item-img">
+              <a href="#" @click.prevent="handlePlayGame(item)">
+                <img :src="item.gameLogo">
+              </a>
+              <div class="mask">
+                <img v-if="item.like" class="heart" src="./img/heart_red.png" @click="handleMyLikeGame(item)">
+                <img v-else class="heart" src="./img/heart.png" @click="handleMyLikeGame(item)">
+              </div>
+            </div>
+            <div class="item-content">
+              {{item.gameName}}
+            </div>
+            <div class="item-playnumber">
+              {{(item.gamePlayNumber/10000).toFixed(2)}}M PLAYS
+            </div>
+          </div>
+        </div>
+        <div class="more-games" @click="handleMoreGames('most')">
+          MORE GAMES
+        </div>
+      </div>
+      <div class="quick">
+        <div class="title">
+          QUICK PLAY
+        </div>
+        <div class="quick-games">
+          <div class="quick-item" v-for="item in quickGameList" :key="item.gameId">
+            <a href="#" @click.prevent="handlePlayGame(item)">
+              <img :src="item.gameLogo">
+            </a>
+            <div class="mask">
+              <img v-if="item.like" class="heart" src="./img/heart_red.png" @click="handleMyLikeGame(item)">
+              <img v-else class="heart" src="./img/heart.png" @click="handleMyLikeGame(item)">
+            </div>
+          </div>
+          <div class="quick-more" @click="handleMoreGames('quick')">
+            <div>
+              <img src="./img/more.png">
+            </div>
+            <div>
+              MORE GAMES
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="our">
+        <div class="title">
+          OUR PICKS
+        </div>
+        <div class="our-games">
+          <div class="our-item" v-for="item in ourGameList" :key="item.gameId">
+            <div class="out-item-img">
+              <img :src="item.gameLogo">
+            </div>
+            <div class="content">
+              <div class="name">
+                {{item.gameName}}
+              </div>
+              <div class="type">
+                action
+              </div>
+              <div class="number">
+                {{(item.gamePlayNumber/10000).toFixed(2)}}M PLAYS
+              </div>
+            </div>
+            <div class="play" @click="handlePlayGame(item)">
+              PLAY GAME
+            </div>
+          </div>
+          <div class="our_more_games" @click="handleMoreGames('our')">
+            MORE GAMES
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="company-name font-Helve" style="font-size: .16rem;text-align: center;">
+        <a href="#" @click="handleToAboutContent('cookies')" class="usersAgreement">cookies</a> |
+        <a href="#" @click="handleToAboutContent('privacy')" class="privacyPolicy">privacy</a> |
+        <a href="#" @click="handleToAboutContent('terms')">about us</a> |
+        <a href="#" @click="handleToAboutContent('company')">contact</a>
+      </div>
+      <div class="company-name font-Helve copyright" style="margin-top: 5px;text-align: center;font-size: .16rem;">
+        Copyright © 2025-2026 Game. All rights Reserved.
+      </div>
+    </div>
+  </div>
+</body>
+<script src="./js/vue.min.js"></script>
+<script src="./js/axios.min.js"></script>
+<script>
+  new Vue({
+    el: "#app",
+    data() {
+      return {
+        gameListData: [],
+        firstPage: 1,
+
+        newGameList: [],
+
+        mostGameList: [],
+        mostPage: 1,
+
+        quickGameList: [],
+        quickPage: 1,
+
+        ourGameList: [],
+        ourPage: 1,
+
+        typeListData: [],
+        imgs: [
+          './img/hot.png',
+          './img/new.png',
+          './img/action.png',
+          './img/kids.png',
+          './img/card.png',
+          './img/sports.png',
+          './img/adventure.png',
+          './img/beauty.png',
+          './img/puzzle.png',
+          './img/football.png',
+          './img/strategy.png',
+          './img/home.png'
+        ],
+
+        menuboxStatus: false,
+        gameChannelId: 0,
+
+        search: "",
+        searchStatus: false,
+        searchGameList: [],
+
+        likeGameList: []
+      }
+    },
+    methods: {
+      getOurGameListData() {
+        axios({
+          method: "post",
+          url: "https://www.migame.vip/gamefront/gameList/index",
+          data: {
+            limit: 9,
+            page: this.ourPage
+          }
+        }).then(res => {
+          let list = res.data.data
+          if (list.length > 1)
+            this.ourGameList.length <= 1 ? this.ourGameList = list : this.ourGameList = this.ourGameList.concat(
+              list)
+        }).finally(_ => {
+
+        })
+      },
+
+      getSearchGameListData() {
+        let params = {
+          limit: 20,
+          page: 1
+        }
+        let url = "https://www.migame.vip/gamefront/gameList/index"
+        if (this.search) {
+          params.gameName = this.search
+          url = "https://www.migame.vip/gamefront/gameList/search"
+        }
+        axios({
+          method: "post",
+          url: url,
+          data: params
+        }).then(res => {
+          if (this.search) {
+            this.searchGameList = res.data.data.data
+          } else {
+            this.searchGameList = res.data.data
+          }
+        }).finally(_ => {
+
+        })
+      },
+      handleMenubox() {
+        this.menuboxStatus = !this.menuboxStatus
+        if (this.menuboxStatus) {
+          document.body.style.overflow = "hidden"
+          document.getElementsByClassName('menubox')[0].classList.add('menubox-open')
+        } else {
+          document.body.style.overflow = "scroll"
+          document.getElementsByClassName('menubox')[0].classList.remove('menubox-open')
+        }
+      },
+      getNewGameListData() {
+        axios({
+          method: "post",
+          url: "https://www.migame.vip/gamefront/gameList/SelectGameByGameType",
+          data: {
+            gameTypeId: 1,
+            limit: 4,
+            page: 1,
+          }
+        }).then(res => {
+          this.newGameList = res.data.data
+
+          this.newGameList = this.newGameList.filter(item => {
+            this.likeGameList.filter(like => {
+              if (item.gameId == like.gameId) {
+                item.like = true
+              }
+            })
+            return item
+          })
+        }).finally(_ => {
+
+        })
+      },
+      getMostGameListData() {
+        axios({
+          method: "post",
+          url: "https://www.migame.vip/gamefront/gameList/SelectGameByGameType",
+          data: {
+            gameTypeId: 10,
+            limit: 9,
+            page: this.mostPage,
+          }
+        }).then(res => {
+          let list = res.data.data
+          if (list.length > 1) {
+            this.mostGameList.length <= 1 ? this.mostGameList = list : this.mostGameList = this.mostGameList
+              .concat(list)
+          }
+
+          this.mostGameList = this.mostGameList.filter(item => {
+            this.likeGameList.filter(like => {
+              if (item.gameId == like.gameId) {
+                item.like = true
+              }
+            })
+            return item
+          })
+        }).finally(_ => {
+
+        })
+      },
+
+      getQuickGameListData() {
+        axios({
+          method: "post",
+          url: "https://www.migame.vip/gamefront/gameList/SelectGameByGameType",
+          data: {
+            gameTypeId: 15,
+            limit: 9,
+            page: this.quickPage,
+          }
+        }).then(res => {
+          let list = res.data.data
+          if (list.length > 1) {
+            this.quickGameList.length <= 1 ? this.quickGameList = list : this.quickGameList = this.quickGameList
+              .concat(list)
+          }
+
+          this.quickGameList = this.quickGameList.filter(item => {
+            this.likeGameList.filter(like => {
+              if (item.gameId == like.gameId) {
+                item.like = true
+              }
+            })
+            return item
+          })
+        }).finally(_ => {
+
+        })
+      },
+
+      getGameListFirst() {
+        axios({
+          method: "post",
+          url: "https://www.migame.vip/gamefront/gameList/SelectGameByGameType",
+          data: {
+            gameTypeId: 2,
+            limit: 9,
+            page: this.firstPage,
+          }
+        }).then(res => {
+          let list = res.data.data
+          if (list.length > 1) {
+            this.gameListData.length <= 1 ? this.gameListData = list : this.gameListData = this.gameListData
+              .concat(list)
+          }
+          this.gameListData = this.gameListData.filter(item => {
+            this.likeGameList.filter(like => {
+              if (item.gameId == like.gameId) {
+                item.like = true
+              }
+            })
+            return item
+          })
+        }).finally(_ => {
+
+        })
+      },
+      handleToHome() {
+        location.href = `index.html?gameChannelId=${this.gameChannelId}`
+      },
+      handleToCategory(item) {
+        location.href =
+          `category.html?gameChannelId=${this.gameChannelId}&gameTypeId=${item.gameTypeId}&gameTypeName=${item.gameTypeName}`
+      },
+      handleToLikeGames() {
+        location.href = `category.html?gameChannelId=${this.gameChannelId}&like='like'`
+      },
+      handlePlayGame(item) {
+      const title = encodeURIComponent(item.gameName || '');
+      const icon  = encodeURIComponent(item.gameLogo || '');
+      location.href = `play.html?gameFileName=${item.gameFileName}&title=${title}&icon=${icon}&gameChannelId=${this.gameChannelId}`;
+      },
+
+      handleToAboutContent(type) {
+        location.href = `about_content.html?aboutContentType=${type}&gameChannelId=${this.gameChannelId}`
+      },
+
+      getGameTypeData() {
+        axios({
+          method: "post",
+          url: "https://www.migame.vip/gamefront/gameType/selectGameType",
+        }).then(res => {
+          this.typeListData = res.data.data
+        })
+      },
+      handleMyLikeGame(params) {
+
+        let likeGames = JSON.parse(localStorage.getItem('likeGames')) || []
+        let status = false
+        likeGames.filter((item, index) => {
+          if (item.gameId == params.gameId) {
+            params.like = false
+            status = true
+            likeGames.splice(index, 1)
+            this.likeGameList.splice(index, 1)
+          }
+        })
+        if (!status) {
+          params.like = true
+          likeGames.push(params)
+          this.likeGameList.push(params)
+        }
+        localStorage.setItem('likeGames', JSON.stringify(likeGames))
+        this.verdictLikeGames()
+      },
+      handleMoreGames(type) {
+        if (type == 'first') {
+          this.firstPage++;
+          this.getGameListFirst()
+        }
+
+        if (type == 'most') {
+          this.mostPage++
+          this.getMostGameListData()
+        }
+
+        if (type == 'quick') {
+          this.quickPage++
+          this.getQuickGameListData()
+        }
+
+        if (type == "our") {
+          this.ourPage++
+          this.getOurGameListData()
+        }
+      },
+      handleSearchStatus() {
+        this.searchStatus = !this.searchStatus
+
+        if (this.searchStatus) {
+          document.body.style.overflow = "hidden"
+        } else {
+          this.search = ""
+          this.getSearchGameListData()
+          document.body.style.overflow = "auto"
+        }
+      },
+
+      verdictLikeGames() {
+        this.newGameList = this.newGameList.filter(item => {
+          this.likeGameList.filter(like => {
+            if (item.gameId == like.gameId) {
+              item.like = true
+            }
+          })
+          return item
+        })
+
+        this.mostGameList = this.mostGameList.filter(item => {
+          this.likeGameList.filter(like => {
+            if (item.gameId == like.gameId) {
+              item.like = true
+            }
+          })
+          return item
+        })
+
+        this.quickGameList = this.quickGameList.filter(item => {
+          this.likeGameList.filter(like => {
+            if (item.gameId == like.gameId) {
+              item.like = true
+            }
+          })
+          return item
+        })
+
+        this.gameListData = this.gameListData.filter(item => {
+          this.likeGameList.filter(like => {
+            if (item.gameId == like.gameId) {
+              item.like = true
+            }
+          })
+          return item
+        })
+      }
+    },
+    created() {
+      this.getGameListFirst()
+      this.getNewGameListData()
+      this.getMostGameListData()
+      this.getQuickGameListData()
+      this.getOurGameListData()
+      this.getGameTypeData()
+      this.getSearchGameListData()
+    },
+    mounted() {
+      this.likeGameList = JSON.parse(localStorage.getItem("likeGames")) || []
+    },
+
+  })
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KKBHV3GGDD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KKBHV3GGDD');
+</script>
+
+</html>

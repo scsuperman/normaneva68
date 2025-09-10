@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Game Detail - GameCastle</title>
+  <link rel="stylesheet" href="./css/mixin.css">
+  <script src="./js/rem_adaptive.js"></script>
+  <link rel="stylesheet" href="./css/play.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4968696535823847"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <header>
+    <img src="./img/list.png" id="menuBtn" alt="menu">
+    <div id="homeBtn">
+      <span>GameCastle</span>
+    </div>
+    <img src="./img/search.png" id="searchBtn" alt="search">
+  </header>
+  <div class="menubox" id="menuDrawer">
+    <div class="type_list" id="typeList">
+      <div class="list_item" id="likeEntry">
+        <img src="./img/like.png" alt="like"><span>Like</span>
+      </div>
+    </div>
+    <div class="menu_footer">
+      <div class="line"></div>
+      <div class="title">Play HTML5 games for free!</div>
+      <div class="about">@2025 Ludigames<br>Powered by Gameloft</div>
+    </div>
+  </div>
+  <div class="menu_bg" id="menuMask"></div>
+  <div id="app">
+    <div class="container">
+      <!-- 头部 -->
+      <div class="game-header">
+        <button class="back-btn" id="backBtn" aria-label="Back">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+            <path d="M15 6 L9 12 L15 18" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="header-title" id="headerTitle"></div>
+      </div>
+
+      <!-- 游戏封面和播放按钮 -->
+      <div class="game-cover">
+        <!-- <div id="coverIcon" class="cover-icon" role="img" aria-label="icon"></div> -->
+        <img id="gameImage" src="./img/placeholder.png" alt="Game Cover">
+        <div class="play-overlay">
+          <button class="play-button" id="playNowBtn">
+            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+            PLAY NOW
+          </button>
+        </div>
+      </div>
+
+      <!-- 游戏信息 -->
+      <div class="game-info">
+        
+
+        <div class="game-meta">
+          <span id="playsText">0 PLAYS</span>
+          <span>•</span>
+          <span id="gameCategory">Action</span>
+        </div>
+
+        <div class="game-description" id="gameDescription"></div>
+
+        <div class="action-buttons">
+          <button class="btn-secondary" id="likeBtn">
+            <img src="./img/heart.png" class="heart-icon" id="heartIcon" alt="喜欢">
+            <span id="likeText">Like</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 相关游戏推荐 -->
+      <div class="similar-games" id="similarSection">
+        <h2 class="section-title">You May Also Like</h2>
+        <div class="similar-grid" id="similarGrid"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      // ---- Helpers ----
+      function qs(name) {
+        const p = new URLSearchParams(location.search);
+        return p.get(name);
+      }
+      function formatPlays(plays) {
+        if (!plays) return '0 PLAYS';
+        if (plays >= 10000) return (plays / 10000).toFixed(1) + 'M PLAYS';
+        return Number(plays).toLocaleString() + ' PLAYS';
+      }
+      function $(sel) { return document.querySelector(sel); }
+      function create(el) { return document.createElement(el); }
+
+      // ---- State ----
+      const state = {
+        gameFileName: qs('gameFileName') || 'gulaodekuangshi',
+        gameNameFromUrl: qs('title') || '',
+        gameIconFromUrl: qs('icon') || '',
+        gameChannelId: parseInt(qs('gameChannelId') || '0', 10) || 0,
+        gameTitle: '',
+        gameImage: './img/placeholder.png',
+        gameIcon: './img/placeholder.png',
+        gameDescription: '',
+        gameCategory: 'Action',
+        gamePlays: 0,
+        gameTypeId: null,
+        isLiked: false,
+        adContent: '',
+        similarGames: []
+      };
+      const menuBtn = document.getElementById('menuBtn');
+      const menuDrawer = document.getElementById('menuDrawer');
+      const menuMask = document.getElementById('menuMask');
+      const typeList = document.getElementById('typeList');
+      const likeEntry = document.getElementById('likeEntry');
+
+      function openDrawer(){
+        document.body.style.overflow='hidden';
+        menuDrawer.classList.add('menubox-open');
+        menuMask.classList.add('show');
+      }
+      function closeDrawer(){
+        document.body.style.overflow='';
+        menuDrawer.classList.remove('menubox-open');
+        menuMask.classList.remove('show');
+      }
+      menuBtn?.addEventListener('click', openDrawer);
+      menuMask?.addEventListener('click', closeDrawer);
+
+      async function fetchTypes(){
+        try{
+          const res = await fetch('https://www.migame.vip/gamefront/gameType/selectGameType', {method:'POST'});
+          const json = await res.json();
+          const list = json?.data || [];
+          list.forEach((it, idx)=>{
+            const li = document.createElement('div');
+            li.className='list_item';
+            const icons = ['hot','new','action','kids','card','sports','adventure','beauty','puzzle','football','strategy','home'];
+            const icon = icons[idx % icons.length];
+            li.innerHTML = `<img src="./img/${icon}.png" alt=""><span>${it.gameTypeName||''}</span>`;
+            li.addEventListener('click', ()=>{
+              location.href = `category.html?gameChannelId=${state.gameChannelId}&gameTypeId=${it.gameTypeId}&gameTypeName=${encodeURIComponent(it.gameTypeName||'')}`;
+            });
+            typeList.appendChild(li);
+          });
+        }catch(e){ console.warn('fetchTypes failed', e); }
+      }
+      likeEntry?.addEventListener('click', ()=>{
+        location.href = `category.html?gameChannelId=${state.gameChannelId}&like=like`;
+      });
+      fetchTypes();
+
+      // ---- Elements ----
+      const headerTitle = $('#headerTitle');
+      const backBtn = $('#backBtn');
+      const playNowBtn = $('#playNowBtn');
+      const gameImageEl = $('#gameImage');
+      const gameCoverEl = document.querySelector('.game-cover');
+      const coverIconEl = $('#coverIcon');
+      const gameIconEl = $('#gameIcon');
+      const gameTitleEl = $('#gameTitle');
+      const gameCategoryEl = $('#gameCategory');
+      const gameDescEl = $('#gameDescription');
+      const playsTextEl = $('#playsText');
+      const likeBtn = $('#likeBtn');
+      const heartIcon = $('#heartIcon');
+      const likeText = $('#likeText');
+      const adSection = $('#adSection');
+      const similarSection = $('#similarSection');
+      const similarGrid = $('#similarGrid');
+
+      // Prefill title/icon immediately from URL if provided (no flicker)
+      (function prefillFromQuery(){
+        const t = qs('title');
+        if (t) {
+          state.gameTitle = t;
+          document.title = t + ' - GameCastle';
+          const t1 = document.getElementById('gameTitle'); if (t1) t1.textContent = t;
+          const h1 = document.getElementById('headerTitle'); if (h1) h1.textContent = t;
+        }
+        const ic = qs('icon');
+        if (ic) {
+          state.gameIcon = ic;
+          // 圆形徽标
+          const ci = document.getElementById('coverIcon');
+          if (ci) ci.style.backgroundImage = `url('${ic}')`;
+          // 顶部标题小图标（如果存在）
+          const gi = document.getElementById('gameIcon');
+          if (gi) {
+            if (gi.tagName === 'IMG') gi.src = ic;
+            else gi.style.backgroundImage = `url('${ic}')`;
+          }
+          // 背景图切换为 icon，并隐藏封面图，确保能看到背景
+          if (gameCoverEl) gameCoverEl.style.backgroundImage = `url('${ic}')`;
+          if (gameImageEl) gameImageEl.style.display = 'none';
+        }
+      })();
+
+      // ---- Like ----
+      function checkLikeStatus() {
+        const liked = JSON.parse(localStorage.getItem('likeGames') || '[]');
+        state.isLiked = liked.some(g => g.gameFileName === state.gameFileName);
+        updateLikeUI();
+      }
+      function toggleLike() {
+        let liked = JSON.parse(localStorage.getItem('likeGames') || '[]');
+        const gameData = { gameFileName: state.gameFileName, gameName: state.gameTitle, gameLogo: state.gameImage };
+        if (state.isLiked) {
+          liked = liked.filter(g => g.gameFileName !== state.gameFileName);
+          state.isLiked = false;
+        } else {
+          liked.push(gameData);
+          state.isLiked = true;
+        }
+        localStorage.setItem('likeGames', JSON.stringify(liked));
+        updateLikeUI();
+      }
+      function updateLikeUI() {
+        if (state.isLiked) {
+          heartIcon.src = './img/heart_red.png';
+          likeText.textContent = 'Liked';
+        } else {
+          heartIcon.src = './img/heart.png';
+          likeText.textContent = 'Like';
+        }
+      }
+
+      // ---- UI Update ----
+      function renderGame() {
+        headerTitle.textContent = state.gameTitle || 'Game Detail';
+        document.title = state.gameTitle ? (state.gameTitle + ' - GameCastle') : 'Game Detail - GameCastle';
+        gameImageEl.src = state.gameImage || './img/placeholder.png';
+        // 若有传入的 icon，则用作背景图并隐藏封面 <img>，否则显示封面图
+        if (state.gameIcon) {
+          if (gameCoverEl) gameCoverEl.style.backgroundImage = `url('${state.gameIcon}')`;
+          if (gameImageEl) gameImageEl.style.display = 'none';
+        } else {
+          if (gameCoverEl) gameCoverEl.style.backgroundImage = '';
+          if (gameImageEl) gameImageEl.style.display = '';
+        }
+        if (coverIconEl) { coverIconEl.style.backgroundImage = `url('${state.gameIcon || state.gameImage || './img/placeholder.png'}')`; }
+        gameDescEl.textContent = state.gameDescription || '';
+        gameCategoryEl.textContent = state.gameCategory || 'Action';
+        playsTextEl.textContent = formatPlays(state.gamePlays || 0);
+      }
+
+      function renderSimilar(list) {
+        similarGrid.innerHTML = '';
+        if (!list || !list.length) {
+          similarSection.hidden = true; // 无数据则隐藏整个区域
+          return;
+        }
+        similarSection.hidden = false;
+        list.forEach(game => {
+          const card = create('div');
+          card.className = 'similar-item';
+          card.addEventListener('click', () => {
+            location.href = `play.html?gameFileName=${encodeURIComponent(game.gameFileName)}&title=${encodeURIComponent(game.gameName || '')}&icon=${encodeURIComponent(game.gameLogo || '')}&gameChannelId=${state.gameChannelId}`;
+          });
+
+          const img = create('img');
+          img.src = game.gameLogo || './img/placeholder.png';
+          img.alt = game.gameName || '';
+          card.appendChild(img);
+
+          const info = create('div');
+          info.className = 'similar-item-info';
+
+          const title = create('div');
+          title.className = 'similar-item-title';
+          title.textContent = game.gameName || '';
+          info.appendChild(title);
+
+          const plays = create('div');
+          plays.className = 'similar-item-plays';
+          plays.textContent = formatPlays(game.gamePlayNumber || 0);
+          info.appendChild(plays);
+
+          card.appendChild(info);
+          similarGrid.appendChild(card);
+        });
+      }
+
+      // ---- Data ----
+      async function fetchGameDetail() {
+        try {
+          const payload = state.gameNameFromUrl
+            ? { limit: 20, page: 1, gameName: state.gameNameFromUrl }
+            : { limit: 20, page: 1, gameName: state.gameFileName };
+          const res = await fetch('https://www.migame.vip/gamefront/gameList/search', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          const json = await res.json();
+          const games = json?.data?.data || [];
+          let game = null;
+          if (state.gameFileName) {
+            game = games.find(g => g.gameFileName === state.gameFileName)
+                 || games.find(g => (g.gameName || '') === state.gameNameFromUrl)
+                 || games[0];
+          } else {
+            game = games.find(g => (g.gameName || '') === state.gameNameFromUrl) || games[0];
+          }
+          if (game) {
+            state.gameTitle = game.gameName || state.gameTitle || '';
+            state.gameImage = game.gameLogo || './img/placeholder.png';
+            state.gameIcon = state.gameIconFromUrl || game.gameLogo || state.gameImage || state.gameIcon;
+            state.gameDescription = game.gameDescribe || '';
+            state.gameCategory = game.gameTypeName || 'Action';
+            state.gamePlays = game.gamePlayNumber || 0;
+            state.gameTypeId = game.gameTypeId || null;
+          }
+        } catch (e) {
+          console.warn('fetchGameDetail failed', e);
+        } finally {
+          checkLikeStatus();
+          renderGame();
+        }
+      }
+
+      async function fetchSimilarGames() {
+        try {
+          const randomNum = Math.floor(Math.random() * 45) + 1;
+          const gid = state.gameTypeId || 10;
+          const res = await fetch('https://www.migame.vip/gamefront/gameList/SelectGameByGameType', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ gameTypeId: gid, limit: 6, page: randomNum })
+          });
+          const json = await res.json();
+          state.similarGames = json?.data || [];
+        } catch (e) {
+          console.warn('fetchSimilarGames failed', e);
+          state.similarGames = [];
+        } finally {
+          renderSimilar(state.similarGames);
+        }
+      }
+
+      // ---- Events ----
+      backBtn.addEventListener('click', () => {
+        if (history.length > 1) history.back();
+        else location.href = `index.html?gameChannelId=${state.gameChannelId}`;
+      });
+      playNowBtn.addEventListener('click', () => {
+        if (window.gamedata && window.gamedata.url) {
+          location.href = window.gamedata.url;
+        } else {
+          location.href = `https://www.datinginfo.top/game/${state.gameFileName}/`;
+        }
+      });
+      likeBtn.addEventListener('click', toggleLike);
+      document.getElementById('homeBtn')?.addEventListener('click', () => location.href = `index.html?gameChannelId=${state.gameChannelId}`);
+
+      // ---- Init ----
+      (async function init(){
+        await fetchGameDetail();
+        await fetchSimilarGames(); // 等详情拿到类型后再请求相关推荐
+      })();
+    })();
+  </script>
+  <script>
+    (function(){
+      var homeBtn = document.getElementById('homeBtn');
+      if (homeBtn) {
+        homeBtn.addEventListener('click', function(){
+          var p = new URLSearchParams(window.location.search);
+          var id = p.get('gameChannelId') || '0';
+          window.location.href = 'index.html?gameChannelId=' + id;
+        });
+      }
+    })();
+  </script>
+</body>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KKBHV3GGDD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KKBHV3GGDD');
+</script>
+
+</html>
