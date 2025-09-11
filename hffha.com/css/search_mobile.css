@@ -1,0 +1,47 @@
+#searchPage {
+  @media screen and (max-width: 1000px) {
+    .searchFloatContent {
+      grid-auto-rows: 200px;
+      grid-template-columns: repeat(4, 1fr);
+      .search_gameItem {
+        width: 100%;
+        height: 100%;
+
+        grid-row: unset;
+        grid-column: unset;
+        &:nth-child(6n - 5),
+        &:nth-child(6n - 4) {
+          grid-row: span 1;
+          grid-column: span 2;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 500px) {
+    .font1 {
+      font-size: 1rem;
+      font-weight: 300;
+    }
+    .font2 {
+      font-size: 1rem;
+      font-weight: 400;
+    }
+    .font3 {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    .font4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    .font5 {
+      font-size: 4rem;
+      font-weight: 800;
+    }
+
+    .searchFloatContent {
+      grid-auto-rows: 100px;
+      
+    }
+  }
+}
