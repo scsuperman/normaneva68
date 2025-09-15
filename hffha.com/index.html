@@ -189,52 +189,52 @@
     // document.querySelectorAll('.categoryName').forEach((item) => {
     //     item.innerHTML = '3D'
     // })
-    let threeDGameList = await getGamesListApi({ num: 12, category: 3 });
-    threeDGameList.forEach((item) => {
-        const threeDGameItem = document.createElement('div');
-        threeDGameItem.className = 'game-item';
-        threeDGameItem.innerHTML = `
-            <a href="play.html?title=${item.title}">
-                <img src="${item.thumb}" alt="">
-                <div class="font3 nameBox">${item.title}</div>
-            </a>
-            `;
+    // let threeDGameList = await getGamesListApi({ num: 12, category: 3 });
+    // threeDGameList.forEach((item) => {
+    //     const threeDGameItem = document.createElement('div');
+    //     threeDGameItem.className = 'game-item';
+    //     threeDGameItem.innerHTML = `
+    //         <a href="play.html?title=${item.title}">
+    //             <img src="${item.thumb}" alt="">
+    //             <div class="font3 nameBox">${item.title}</div>
+    //         </a>
+    //         `;
 
 
-        document.querySelector('.threeDGameGridBox').appendChild(threeDGameItem);
-    })
+    //     document.querySelector('.threeDGameGridBox').appendChild(threeDGameItem);
+    // })
 
     // 关闭首评加载动画的时机
-    document.querySelector('.indexPage').classList.toggle('loadingAnimation', false)
+    // document.querySelector('.indexPage').classList.toggle('loadingAnimation', false)
 
 
-    let AdventureGameList = await getGamesListApi({ num: 12, category: 4 });
-    AdventureGameList.forEach((item) => {
-        const AdventureGameItem = document.createElement('div');
-        AdventureGameItem.className = 'game-item';
-        AdventureGameItem.innerHTML = `
-            <a href="play.html?title=${item.title}">
-                <img src="${item.thumb}" alt="">
-            </a>
-            `;
+    // let AdventureGameList = await getGamesListApi({ num: 12, category: 4 });
+    // AdventureGameList.forEach((item) => {
+    //     const AdventureGameItem = document.createElement('div');
+    //     AdventureGameItem.className = 'game-item';
+    //     AdventureGameItem.innerHTML = `
+    //         <a href="play.html?title=${item.title}">
+    //             <img src="${item.thumb}" alt="">
+    //         </a>
+    //         `;
 
 
-        document.querySelector('.AdventureGameGridBox').appendChild(AdventureGameItem);
-    })
+    //     document.querySelector('.AdventureGameGridBox').appendChild(AdventureGameItem);
+    // })
 
-    let GirlsGameList = await getGamesListApi({ num: 12, category: 4 });
-    GirlsGameList.forEach((item) => {
-        const GirlsGameItem = document.createElement('div');
-        GirlsGameItem.className = 'game-item';
-        GirlsGameItem.innerHTML = `
-            <a href="play.html?title=${item.title}">
-                <img src="${item.thumb}" alt="">
-            </a>
-            `;
+    // let GirlsGameList = await getGamesListApi({ num: 12, category: 4 });
+    // GirlsGameList.forEach((item) => {
+    //     const GirlsGameItem = document.createElement('div');
+    //     GirlsGameItem.className = 'game-item';
+    //     GirlsGameItem.innerHTML = `
+    //         <a href="play.html?title=${item.title}">
+    //             <img src="${item.thumb}" alt="">
+    //         </a>
+    //         `;
 
 
-        document.querySelector('.GirlsGameGridBox').appendChild(GirlsGameItem);
-    })
+    //     document.querySelector('.GirlsGameGridBox').appendChild(GirlsGameItem);
+    // })
     import("./assets/js/business.js").then((res) => {
         let menuFloatContent = document.querySelector('.menuFloatContent')
         res.getGamesListCategory
