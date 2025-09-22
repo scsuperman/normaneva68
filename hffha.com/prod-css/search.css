@@ -3,8 +3,6 @@
 
 .searchPage {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -62,7 +60,9 @@
 
 .searchPage .category{
     color: var(--color-background-light);
-    padding:20px;
+    padding:0 20px;
+    padding-top: 10px;
+
   }
 
 .searchPage .searchFloatContent {
@@ -70,7 +70,7 @@
     flex-grow: 1;
     display:grid;
     grid-auto-rows: 200px;
-    grid-template-columns: repeat(8, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-gap: 20px;
     padding: 20px;
     justify-items: center;
@@ -124,26 +124,6 @@
 
     }
 
-.searchPage .searchFloatContent .search_gameItem:nth-child(12n - 11) {
-            grid-row: span 1;
-            grid-column: span 2;
-          }
-
-.searchPage .searchFloatContent .search_gameItem:nth-child(12n - 10) {
-            grid-row: span 1;
-            grid-column: span 2;
-          }
-
-.searchPage .searchFloatContent .search_gameItem:nth-child(12n - 9) {
-            grid-row: span 1;
-            grid-column: span 2;
-          }
-
-.searchPage .searchFloatContent .search_gameItem:nth-child(12n - 8) {
-            grid-row: span 1;
-            grid-column: span 2;
-          }
-
 .searchPage .searchFloatContent .search_gameItem img{
             width: 100%;
             height: 100%;
@@ -155,18 +135,16 @@
 
 .searchPage .searchFloatContent .search_gameItem .gameTitle {
             position: absolute;
-            bottom: 4px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80%;
-            padding: 20px;
-            text-align: center;
+            bottom: 0;
+            color: var(--color-background-light);
             background: rgba(0, 0, 0, 0.5);
-            border-radius: calc(infinity * 1px);
-
-            color:white;
-            /* 超出一行省略号 */
+            padding: 10px 2px;
+            border-radius: 4px;
+    
+            /* 单行超出省略 */
+            width: 100%;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            text-align: center;
           }

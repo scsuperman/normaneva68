@@ -16,7 +16,7 @@ body {
   line-height: 1;
   transition: all 0.5s;
   font-size: var(--fontSize);
-  background: black;
+  background: var(--color-background1);
 }
 
 

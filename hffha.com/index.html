@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" cyan>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -7,9 +7,7 @@
     <title>HFFHA - Games</title>
     <link rel="icon" href="logo.png" />
     <link rel="stylesheet" href="prod-css/index.css">
-    <!-- <script src="./assets/js/swiper-element-bundle.min.js"></script> -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5899441324359347"
-     crossorigin="anonymous"></script>
+    <script src="./assets/js/swiper-element-bundle.min.js"></script>
 </head>
 
 <body>
@@ -20,12 +18,10 @@
                 <div class="logo">
                     <img src="logo.png" alt="" srcset="">
                 </div>
-                <a href="search.html" class="search-bar">
-                    <div class="icon">
-                        <img src="./assets/Search@3x.png" alt="" srcset="">
-                    </div>
+                <!-- <a href="search.html" class="search-bar">
+                    <div class="icon">🔍</div>
 
-                </a>
+                </a> -->
 
                 <div class="menu-icons" onclick="switchMenu()">
                     <img class="icon" src="./assets/menu@3x.png" alt="" srcset="">
@@ -35,58 +31,70 @@
             </div>
         </header>
 
+        <swiper-container init="false" class="gameSwiper" navigation="true" pagination="true"
+            pagination-clickable="true" space-between="10" slides-per-view="1" breakpoints='{
+            "1200": {
+                "slidesPerView": 3
+            },
+            "700": {
+                "slidesPerView": 2
+            }
+        }'>
+        </swiper-container>
+
+        <div style="width: 100%; min-height: 250px; text-align: center;">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5899441324359347"
+                crossorigin="anonymous"></script>
+        <!-- hffha_display_01_01 -->
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-5899441324359347"
+                data-ad-slot="8662630948"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
         <main class="main-content">
 
-            <!-- <div class="banner">
-                <img src="./assets/banner@3x.png" alt="" srcset="">
+            <a href="search.html" class="search-bar">
+                <div class="icon">🔍</div>
+            </a>
 
-
-            </div> -->
-
-            
-            <!-- <section class="hot font2">
-                <h2>
-                    HOT
-                    <img src="./assets/more@3x.png" alt="">
-                </h2>
-
- 
-
+            <section class="hot font2">
+                <h2> <img src="./assets/2 copy.png" alt=""> HOT</h2>
                 <div class="hotGameGridBox">
-                
-                </div>
-            </section> -->
 
-        
+
+                </div>
+            </section>
+
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5899441324359347"
+                crossorigin="anonymous"></script>
+            <!-- hffha_display_02_01 -->
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-5899441324359347"
+                data-ad-slot="2540893969"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
 
             <section class="newGame font2">
-                <!-- <h2>
-                    NEW
-                    <img src="./assets/more@3x.png" alt="">
-                </h2> -->
-
-                <div style="width: 100%; min-height: 250px; align-items: center; justify-content: center;margin-top: 10px; margin-bottom: 3px;">
-                <!-- hffha_display_01_01 -->
-                <ins class="adsbygoogle"
-                    style="display:block"
-                    data-ad-client="ca-pub-5899441324359347"
-                    data-ad-slot="8662630948"
-                    data-ad-format="auto"
-                    data-full-width-responsive="true"></ins>
-                <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-                </div>
+                <h2> <img src="./assets/3 copy.png" alt="">NEW</h2>
                 <div class="newGameGridBox">
 
                 </div>
             </section>
 
-            <!-- <section class="threeD font2">
+            <section class="threeD font2">
                 <h2>
-                    <span class="categoryName">threeD</span>
+                    <div class="left"><img src="./assets/2 copy.png" alt="">threeD</div>
                     <a href="search.html?category=3D" class="more-link">more &gt;</a>
-
                 </h2>
                 <div class="threeDGameGridBox">
 
@@ -95,28 +103,30 @@
 
             <section class="Adventure font2">
                 <h2>
-                    <span>Adventure</span>
+                    <div class="left"><img src="./assets/4 copy.png" alt="">Adventure</div>
+
                     <a href="search.html?category=Adventure" class="more-link">more &gt;</a>
                 </h2>
                 <div class="AdventureGameGridBox">
                 </div>
             </section>
 
-            <section class="Girls font2">
+            <section class="Boys font2">
                 <h2>
-                    <span>Girls</span>
-                    <a href="search.html?category=Girls" class="more-link">more &gt;</a>
-                </h2>
-                <div class="GirlsGameGridBox">
-                </div>
-            </section> -->
+                    <div class="left"><img src="./assets/5 copy.png" alt="">Boys</div>
 
+                    <a href="search.html?category=Boys" class="more-link">more &gt;</a>
+                </h2>
+                <div class="BoysGameGridBox">
+                </div>
+            </section>
         </main>
 
         <div class="site-info-area font1">
-            <h2 style="text-align: left">
+            <h2 style="text-align: center">
                 If you enjoy our site, learn more about GAME!
             </h2>
+
 
             <p>
                 Discover a world of exciting challenges online at GAME, the ultimate
@@ -146,7 +156,7 @@
 
         </div>
         <div class="shengming font1">
-            <h3 style="text-align: left">About Us</h3>
+            <h3 style="text-align: center">About Us</h3>
             <div>
                 User Responsibility: Users shall bear full responsibility for the
                 content they provide in accordance with the law, and the platform shall
@@ -163,114 +173,213 @@
                 <a href="./TermsofService.html">Terms-of Service</a>
             </div>
         </div>
-
     </div>
 </body>
 <script type="module">
     import { getGamesListApi } from "./assets/js/business.js";
     let gamesListIndex = 0
-    let GameList = await getGamesListApi({ num: 50,page:5 });
+    let GameList = await getGamesListApi({ num: 50 });
+
+    GameList.slice(0, gamesListIndex += 10).forEach((item) => {
+        const swiperSlide = document.createElement('swiper-slide');
+        swiperSlide.innerHTML = `
+        <a href="play.html?title=${item.title}">
+            <img src="${item.thumb}" alt="">
+            <div class="font1 nameBox font4">${item.title}</div>
+        </a>`;
+        document.querySelector('.gameSwiper').appendChild(swiperSlide);
+    });
 
 
-    let newGameList = GameList.slice(gamesListIndex, gamesListIndex += 24)
+
+
+
+    const swiperEl = document.querySelector('swiper-container')
+
+    const params = {
+        injectStyles: [`
+        // .swiper{
+        //    padding-bottom: 30px; /* 为pagination留出空间 */
+        // }
+        .swiper-pagination{
+            --swiper-pagination-bottom: 70px;
+            // transform:translateY(50px);
+            right: 10px;
+            width: fit-content !important;
+            left: auto !important;
+        }
+        .swiper-pagination-bullet {
+            width: 10px;
+            height: 10px;
+            text-align: center;
+            line-height: 10px;
+            font-size: 12px;
+            color: #000;
+            opacity: 1;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .swiper-pagination-bullet-active {
+            color: #fff;
+            background:  #fff;
+        }
+  `],
+        // pagination: {
+        //     clickable: true,
+        //     renderBullet: function (index, className) {
+        //         return '<span class="' + className + '">' + (index + 1) + "</span>";
+        //     },
+        // },
+    }
+
+    Object.assign(swiperEl, params)
+
+    swiperEl.initialize();
+
+
+
+
+
+
+
+
+    let hotGameList = GameList.slice(gamesListIndex, gamesListIndex += 16)
+    hotGameList.forEach((item) => {
+        const hotGameItem = document.createElement('div');
+        // 写一个3.5到5的随机数，保留一位小数
+        let randomNum = (Math.random() * 1.5 + 3.5).toFixed(1)
+        hotGameItem.className = 'game-item';
+        hotGameItem.innerHTML = `
+            <a href="play.html?title=${item.title}">
+                <img class="gameImg" src="${item.thumb}" alt="">
+                <div class="font3 nameBox">
+                    <div class="title font3">${item.title}</div>
+                     <div class="mark font2">
+                        <img src="./assets/star.png" alt="">
+                        ${randomNum}</div>
+                    <div class="play font3">play</div>
+                </div>
+            </a>
+      `;
+
+        document.querySelector('.hotGameGridBox').appendChild(hotGameItem);
+
+
+    })
+
+    let newGameList = GameList.slice(gamesListIndex, gamesListIndex += 6)
     newGameList.forEach((item) => {
         const newGameItem = document.createElement('div');
+        // 写一个3.5到5的随机数，保留一位小数
+        let randomNum = (Math.random() * 1.5 + 3.5).toFixed(1)
         newGameItem.className = 'game-item';
         newGameItem.innerHTML = `
-            <a href="play.html?title=${item.title}">
-                <img src="${item.thumb}" alt="">
-                 <div class="font1 nameBox">${item.title}</div>
+             <a href="play.html?title=${item.title}">
+                <img class="gameImg" src="${item.thumb}" alt="">
+                <div class="font3 nameBox">
+                    <div class="title font3">${item.title}</div>
+                     <div class="mark font2">
+                        <img src="./assets/star.png" alt="">
+                        ${randomNum}</div>
+                    <div class="play font3">play</div>
+                </div>
             </a>
             `;
         document.querySelector('.newGameGridBox').appendChild(newGameItem);
     })
 
-
-    // document.querySelectorAll('.categoryName').forEach((item) => {
-    //     item.innerHTML = '3D'
-    // })
-    // let threeDGameList = await getGamesListApi({ num: 12, category: 3 });
-    // threeDGameList.forEach((item) => {
-    //     const threeDGameItem = document.createElement('div');
-    //     threeDGameItem.className = 'game-item';
-    //     threeDGameItem.innerHTML = `
-    //         <a href="play.html?title=${item.title}">
-    //             <img src="${item.thumb}" alt="">
-    //             <div class="font3 nameBox">${item.title}</div>
-    //         </a>
-    //         `;
-
-
-    //     document.querySelector('.threeDGameGridBox').appendChild(threeDGameItem);
-    // })
-
     // 关闭首评加载动画的时机
     document.querySelector('.indexPage').classList.toggle('loadingAnimation', false)
+    // 关闭首评加载动画的时机
 
 
-    // let AdventureGameList = await getGamesListApi({ num: 12, category: 4 });
-    // AdventureGameList.forEach((item) => {
-    //     const AdventureGameItem = document.createElement('div');
-    //     AdventureGameItem.className = 'game-item';
-    //     AdventureGameItem.innerHTML = `
-    //         <a href="play.html?title=${item.title}">
-    //             <img src="${item.thumb}" alt="">
-    //         </a>
-    //         `;
+
+    let threeDGameList = await getGamesListApi({ num: 12, category: 3 });
+    threeDGameList.forEach((item) => {
+        const threeDGameItem = document.createElement('div');
+        threeDGameItem.className = 'game-item';
+        threeDGameItem.innerHTML = `
+            <a href="play.html?title=${item.title}">
+                <img src="${item.thumb}" alt="">
+                <div class="title font4">${item.title}</div>
+            </a>
+            `;
+        document.querySelector('.threeDGameGridBox').appendChild(threeDGameItem);
+    })
 
 
-    //     document.querySelector('.AdventureGameGridBox').appendChild(AdventureGameItem);
-    // })
-
-    // let GirlsGameList = await getGamesListApi({ num: 12, category: 4 });
-    // GirlsGameList.forEach((item) => {
-    //     const GirlsGameItem = document.createElement('div');
-    //     GirlsGameItem.className = 'game-item';
-    //     GirlsGameItem.innerHTML = `
-    //         <a href="play.html?title=${item.title}">
-    //             <img src="${item.thumb}" alt="">
-    //         </a>
-    //         `;
 
 
-    //     document.querySelector('.GirlsGameGridBox').appendChild(GirlsGameItem);
-    // })
+
+
+
+
+    let AdventureGameList = await getGamesListApi({ num: 12, category: 4 });
+    AdventureGameList.forEach((item) => {
+        const AdventureGameItem = document.createElement('div');
+        AdventureGameItem.className = 'game-item';
+        AdventureGameItem.innerHTML = `
+            <a href="play.html?title=${item.title}">
+                <img src="${item.thumb}" alt="">
+                <div class="title font4">${item.title}</div>
+            </a>
+            `;
+
+
+        document.querySelector('.AdventureGameGridBox').appendChild(AdventureGameItem);
+    })
+
+
+    let BoysGameGridList = await getGamesListApi({ num: 12, category: 7 });
+    BoysGameGridList.forEach((item) => {
+        const AdventureGameItem = document.createElement('div');
+        AdventureGameItem.className = 'game-item';
+        AdventureGameItem.innerHTML = `
+            <a href="play.html?title=${item.title}">
+                <img src="${item.thumb}" alt="">
+                <div class="title font4">${item.title}</div>
+            </a>
+            `;
+
+
+        document.querySelector('.BoysGameGridBox').appendChild(AdventureGameItem);
+    })
+
     import("./assets/js/business.js").then((res) => {
         let menuFloatContent = document.querySelector('.menuFloatContent')
         res.getGamesListCategory
-            .forEach((item,index) => {
+            .forEach((item, index) => {
                 let div = document.createElement('div')
-                div.className = 'categoryItem font1'
+                div.className = 'categoryItem font4'
                 div.innerHTML = `
             <a href="search.html?category=${item}">
                 <img src="./assets/c-${index + 1}.png" alt="" srcset="">
-                ${item}
+                <div class="categoryName">${item}</div>
             </a>
             `
                 menuFloatContent.appendChild(div)
             })
     })
 
-
     window.switchMenu = function () {
         document.querySelector('.menuFloatContent').classList.toggle('hidden')
 
     }
 
-
 </script>
 
 <!-- gtag -->
 
-      <!-- Google tag (gtag.js) -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-KECYFMZKVX"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-KECYFMZKVX');
-      </script>
         
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KECYFMZKVX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KECYFMZKVX');
+</script>
+              
 
 </html>

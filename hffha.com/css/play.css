@@ -2,50 +2,18 @@
 @import "play_mobile.css";
 
 .playPage {
-  max-width: 1200px;
+  max-width: 1500px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  background:black;
-  .header{
-    display: flex;
-   
-    align-items: center;
-    color:white;
-    position: relative;
-    padding: 10px;
-    .HomeButton{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 50px;
-      height: 50px;
-      background-color: white;
-      border-radius: 10px;
-      cursor: pointer;
-      img{
-        width: 30px;
-        height: 30px;
-      }
-    }
-    .title{
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      font-weight: 600;
-    }
-
-  }
 
   .gameBanner {
     position: relative;
-    z-index: 1;
-    height: 600px;
-    border-radius: 20px;
-    border: 2px solid var(--color-background-hsl);
-    margin: 20px;
+    /* height: 100vh; */
+    max-height: 1500px;
+    background-color: rgba(255, 255, 255, 0.1);
+
     .bgdimg {
       position: absolute;
       z-index: -1;
@@ -60,12 +28,12 @@
       flex-direction: column;
       justify-content: flex-end;
       align-items: center;
-      gap: 30px;
-      padding: 50px 0;
+      gap: 20px;
+      padding: 20px 0;
       .mainImg {
-        width: 200px;
-        height: 200px;
-        flex-shrink: 0;
+        width: 80%;
+        max-width: 400px;
+        aspect-ratio: 1/1;
         object-fit: cover;
         border-radius: 20px;
         transform: scale(1);
@@ -80,39 +48,16 @@
         white-space: nowrap;
         width: 100%;
         text-align: center;
-        height: 60px;
+        /* height: 60px; */
+        
       }
-      .playButton {
-        width: 80%;
-        max-width: 300px;
-        cursor: pointer;
-        padding: 20px;
-        color: var(--color-background-light);
-        border-radius: calc(infinity * 1px);
-        transition: 0.3s;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        background: #e3577b;
-
-
-        &:hover {
-          background-color: var(--color-background-light);
-          color: var(--color-background1);
-        }
-        img {
-          width: 30px;
-          height: 30px;
-          object-fit: cover;
-        }
-      }
+      
 
       .footer {
+        width: 100%;
         opacity: 0.8;
-        /* display: flex; */
-        display:none;
-        justify-content: space-between;
+        display: flex;
+        justify-content: space-evenly;
         gap: 20px;
         .gameMsg {
           display: flex;
@@ -122,7 +67,7 @@
           img {
             width: 30px;
           }
-          .gameMsgNum {
+          .gameMsgNum{
             color: var(--color-background-light);
             height: 20px;
           }
@@ -130,19 +75,41 @@
       }
     }
   }
+  .playButton {
+    width: calc(100% - 20px);
+    margin: 0 auto;
+    cursor: pointer;
+    padding:  10px;
+    background-color: var(--color-background-light1);
+    color: var(--color-background1);
+    border-radius: 10px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    &:hover {
+      background-color: var(--color-background-light);
+      color: var(--color-background1);
+    }
+    img{
+      width: 30px;
+      height: 30px;
+      object-fit: cover;
 
+    }
+  }
   .description {
     width: calc(100% - 20px);
     margin: 0 auto;
     height: 140px;
     overflow: auto;
-    /* background-color: rgba(255, 255, 255, 0.5); */
+    background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border-radius: 5px;
     padding: 10px 20px;
     line-height: 2rem;
     color: var(--color-background-light);
-    /* background: linear-gradient(to bottom, #fbe39b, #dec16b, #675b48); */
   }
 
   .SimilarGame {
@@ -157,9 +124,8 @@
     backdrop-filter: blur(10px);
     border-radius: 5px;
     padding: 10px;
-    background: #f1f7fb;
 
-    a {
+    a{
       width: 100%;
       height: 100%;
       display: flex;
@@ -179,7 +145,7 @@
     }
   }
 
-  /* .HomeButton {
+  .HomeButton {
     position: fixed;
     top: 0;
     left: 0;
@@ -196,6 +162,7 @@
     span {
       transform: translate(-10px, -10px);
     }
+    /* 禁止复制 */
     user-select: none;
 
     &:hover {
@@ -208,5 +175,37 @@
       object-fit: cover;
       transform: translate(-5px, -5px);
     }
-  } */
+  }
+}
+
+.playPage.loadingAnimation {
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      135deg,
+      var(--color-background-light1),
+      var(--color-background-dark)
+    ); /* 背景渐变色 */
+  }
+  &::after {
+    content: "loading...";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    color: var(--color-background-light);
+    font-size: 50px;
+    font-weight: bold;
+    /* 字体抖动动画 */
+    animation: shake 1.5s linear infinite, fadeIn 1.5s linear infinite;
+  }
 }
