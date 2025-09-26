@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" cyan>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>erhtu.com</title>
+    <link rel="icon" href="logo.png" />
+    <link rel="stylesheet" href="prod-css/play.css" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5899441324359347"
+                crossorigin="anonymous"></script>
+</head>
+
+  <body>
+    <div class="playPage" id="playPage">
+      <div class="header">
+        <a href="./">
+          <div class="HomeButton font1">
+            <img src="./assets/left.svg" alt="" srcset="" />
+          </div>
+        </a>
+        <div class="font4 title">erhtu.com</div>
+      </div>
+
+      <div style="width: 300px; min-height: 250px; ">
+          <!-- ecg_erhtu_com_display_01 -->
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-5899441324359347"
+                data-ad-slot="7578087861"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+      </div>
+
+      <div class="gameBanner" onclick="gotoPlayGame()">
+        <img class="bgdimg gameImgUrl" alt="" />
+
+        <div class="gameBannerbox">
+          <img
+            class="mainImg gameImgUrl"
+            src="./assets/placeholder.svg"
+            alt=""
+            srcset=""
+          />
+          <div class="gameTitle font4"></div>
+          <div class="description font2"></div>
+
+          
+
+          <div class="playButton font2" onclick="gotoPlayGame()">
+            <img src="./assets/kaishi.png" alt="" />
+            Play Now
+          </div>
+
+          <div class="footer">
+            <div class="gameMsg">
+              <img src="./assets/9.png" alt="" />
+              <div class="font08 gameMsgNum"></div>
+            </div>
+            <div class="gameMsg">
+              <img src="./assets/10.png" alt="" />
+              <div class="font08 gameMsgNum"></div>
+            </div>
+            <div class="gameMsg">
+              <img src="./assets/11.png" alt="" />
+              <div class="font08 gameMsgNum"></div>
+            </div>
+            <div class="gameMsg">
+              <img src="./assets/12.png" alt="" />
+              <div class="font08 gameMsgNum"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="SimilarGame"></div>
+    </div>
+  </body>
+  <script type="module">
+    import {
+      getGamesListApi,
+      getGamesListCategory,
+    } from "./assets/js/business.js";
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const title = urlParams.get("title");
+    let allGameList = await getGamesListApi({ name: title });
+    window.gamedata = allGameList[0];
+
+    Array.prototype.forEach.call(
+      document.getElementsByClassName("gameImgUrl"),
+      (item) => {
+        item.src = gamedata.thumb;
+      }
+    );
+
+    Array.prototype.forEach.call(
+      document.getElementsByClassName("gameTitle"),
+      (item) => {
+        item.innerHTML = gamedata.title;
+      }
+    );
+
+    Array.from(document.getElementsByClassName("gameMsgNum"))[0].innerHTML =
+      Math.floor(Math.random() * 1000);
+    Array.from(document.getElementsByClassName("gameMsgNum"))[1].innerHTML =
+      Math.floor(Math.random() * 100);
+    Array.from(document.getElementsByClassName("gameMsgNum"))[2].innerHTML =
+      Math.floor(Math.random() * 2000);
+    Array.from(document.getElementsByClassName("gameMsgNum"))[3].innerHTML =
+      Math.floor(Math.random() * 3000);
+
+    document.querySelector(".description").innerHTML = gamedata.description;
+
+    let SimilarGameList = await getGamesListApi({
+      num: 30,
+      category: getGamesListCategory.indexOf(gamedata.category),
+    });
+
+    SimilarGameList.forEach((item) => {
+      document.querySelector(".SimilarGame").innerHTML += `
+            <a href="play.html?title=${item.title}">
+                <div class="gameItem"> <img src="${item.thumb}" alt=""></div>
+            </a>`;
+    });
+
+    window.gotoPlayGame = function () {
+      window.location.href = gamedata.url;
+    };
+  </script>
+
+  <!-- gtag -->
+
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-EESGWMGEC0"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-EESGWMGEC0');
+      </script>
+        
+</html>

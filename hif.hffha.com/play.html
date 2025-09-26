@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>HIF-GAMES</title>
+    <link rel="icon" href="logo.png" />
+    <link rel="stylesheet" href="prod-css/play.css" />
+</head>
+
+<body>
+    <div class="playPage loadingAnimation" id="playPage">
+        <div class="gameBanner" onclick="gotoPlayGame()">
+            <img hidden class="bgdimg gameImgUrl" src="" alt="" />
+
+            <div class="gameBannerbox">
+                <img class="mainImg gameImgUrl" src="./assets/placeholder.svg" alt="" srcset="" />
+
+                <div style="width: 100%; min-height: 50px; text-align: center;">
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5899441324359347"
+                        crossorigin="anonymous"></script>
+                    <!-- hif_hffha_com_display_01 -->
+                    <ins class="adsbygoogle"
+                        style="display:block"
+                        data-ad-client="ca-pub-5899441324359347"
+                        data-ad-slot="8249183462"
+                        data-ad-format="auto"
+                        data-full-width-responsive="true"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+
+                <div class="gameTitle font4"></div>
+                <div class="footer">
+                    <div class="gameMsg">
+                        <img src="./assets/xing@3x.png" alt="" />
+                        <div class="font08 gameMsgNum"></div>
+                    </div>
+                    <div class="gameMsg">
+                        <img src="./assets/xiazai.png" alt="" />
+                        <div class="font08 gameMsgNum"></div>
+                    </div>
+                    <!-- <div class="gameMsg">
+                        <img src="./assets/11.png" alt="" />
+                        <div class="font08 gameMsgNum"></div>
+                    </div>
+                    <div class="gameMsg">
+                        <img src="./assets/12.png" alt="" />
+                        <div class="font08 gameMsgNum"></div>
+                    </div> -->
+                </div>
+
+                <div class="playButton font3" onclick="gotoPlayGame()">
+                    <img src="./assets/kaishi.png" alt="">
+                    Play
+                </div>
+                <div class="description font2"></div>
+               
+            </div>
+        </div>
+        
+        <div class="SimilarGame"></div>
+        <a href="./">
+            <div class="HomeButton font1">
+                <img src="./assets/fanhui.png" alt="" srcset="" />
+            </div>
+        </a>
+    </div>
+</body>
+<script type="module">
+    import { getGamesListApi, getGamesListCategory } from "./assets/js/business.js";
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const title = urlParams.get("title");
+    let allGameList = await getGamesListApi({ name: title });
+    window.gamedata = allGameList[0];
+
+    Array.prototype.forEach.call(
+        document.getElementsByClassName("gameImgUrl"),
+        (item) => {
+            item.src = gamedata.thumb;
+        }
+    );
+
+    Array.prototype.forEach.call(
+        document.getElementsByClassName("gameTitle"),
+        (item) => {
+            item.innerHTML = gamedata.title;
+        }
+    );
+
+    Array.from(document.getElementsByClassName("gameMsgNum"))[0].innerHTML = Math.floor(Math.random() * 1000)
+    Array.from(document.getElementsByClassName("gameMsgNum"))[1].innerHTML = Math.floor(Math.random() * 100)
+    // Array.from(document.getElementsByClassName("gameMsgNum"))[2].innerHTML = Math.floor(Math.random() * 2000)
+    // Array.from(document.getElementsByClassName("gameMsgNum"))[3].innerHTML = Math.floor(Math.random() * 3000)
+
+    document.querySelector(".description").innerHTML = gamedata.description;
+
+     // 关闭首评加载动画的时机
+     document.querySelector('.playPage').classList.toggle('loadingAnimation', false)
+    // 关闭首评加载动画的时机
+
+    let SimilarGameList = await getGamesListApi({ num: 30, category: getGamesListCategory.indexOf(gamedata.category) });
+
+    SimilarGameList.forEach((item) => {
+        document.querySelector(".SimilarGame").innerHTML += `
+            <a href="play.html?title=${item.title}">
+                <div class="gameItem"> <img src="${item.thumb}" alt=""></div>
+            </a>`
+    })
+
+
+    window.gotoPlayGame = function () {
+        window.location.href = gamedata.url;
+    }
+
+</script>
+
+<!-- gtag -->
+
+        
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CE7H209462"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CE7H209462');
+</script>
+              
+
+</html>
