@@ -1,0 +1,57 @@
+#app{
+  max-width: 768px;
+  margin: 0 auto;
+}
+.main .content .title{
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.16rem;
+}
+
+.main .content .games{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0.2rem;
+}
+
+.main .content .games .item{
+  position: relative;
+}
+
+.main .content .games .item>img{
+  width: 1.75rem;
+  height: 1.85rem;
+  border-radius: 0.1rem;
+  margin-left: 0.08rem;
+  margin-bottom: 0.05rem;
+}
+
+.main .content .games .mask img{
+  width: 0.2rem;
+}
+
+.main .content .games  .mask{
+  position: absolute;
+  top: 0.05rem;
+  right: 0.05rem;
+  background: #fff;
+  opacity: 0.7;
+  width: 0.25rem;
+  height: 0.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.04rem;
+}
+
+.main .content .hint{
+  margin: 0.7rem auto;
+  text-align: center;
+  line-height: 0.4rem;
+  width: 2.7rem;
+}
+
+.more-games{
+  height: 0.45rem !important;
+  font-size: 0.16rem !important;
+}
