@@ -3,10 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>HIF-GAMES</title>
+    <meta name="viewport" content="width=375, user-scalable=no" />
+    <title>HIFI GAMES</title>
     <link rel="icon" href="logo.png" />
     <link rel="stylesheet" href="prod-css/search.css">
+<title>HIFI GAMES</title>
 </head>
 
 <body>
@@ -18,10 +19,10 @@
                     <img src="logo.png" alt="" srcset="">
                 </a>
 
-                <input autofocus id="search_name" class="font2" type="text" placeholder="Search Game" oninput="search_game()" />
-                <div class="close-icons" onclick="closeSearchFloatContent()">
+                <input id="search_name" class="font2" type="text" placeholder="Search Game" oninput="search_game()" />
+                <!-- <div class="close-icons" onclick="closeSearchFloatContent()">
                     <img class="icon" src="./assets/Close.svg" alt="" srcset="">
-                </div>
+                </div> -->
             </div>
         </header>
         <h2 class="category font3"></h2>
@@ -85,20 +86,25 @@
         search_name.value = "";
         search_game()
     }
+
+
+
+
+
+
 </script>
 
 <!-- gtag -->
 
-        
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-CE7H209462"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-CE7H209462"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
 
-  gtag('config', 'G-CE7H209462');
-</script>
-              
+          gtag('config', 'G-CE7H209462');
+        </script>
+        
 
 </html>
