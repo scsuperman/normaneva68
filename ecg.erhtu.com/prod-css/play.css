@@ -7,14 +7,16 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
 
-  .gameBanner {
+.playPage .gameBanner {
     position: relative;
     /* height: 100vh; */
     max-height: 1500px;
     background-color: rgba(255, 255, 255, 0.1);
+  }
 
-    .bgdimg {
+.playPage .gameBanner .bgdimg {
       position: absolute;
       z-index: -1;
       width: 100%;
@@ -22,7 +24,8 @@
       /* 毛玻璃效果 */
       filter: blur(25px);
     }
-    .gameBannerbox {
+
+.playPage .gameBanner .gameBannerbox {
       height: 100%;
       display: flex;
       flex-direction: column;
@@ -30,17 +33,21 @@
       align-items: center;
       gap: 20px;
       padding: 20px 0;
-      .mainImg {
+    }
+
+.playPage .gameBanner .gameBannerbox .mainImg {
         width: 50%;
         max-width: 400px;
         aspect-ratio: 1/1;
-        object-fit: cover;
+        -o-object-fit: cover;
+           object-fit: cover;
         border-radius: 20px;
         transform: scale(1);
         transition: 0.3s;
         box-shadow: 2px 2px 4px 0 rgba(255, 255, 255, 0.3);
       }
-      .gameTitle {
+
+.playPage .gameBanner .gameBannerbox .gameTitle {
         color: var(--color-background-light);
         /* 省略号 */
         overflow: hidden;
@@ -51,31 +58,32 @@
         /* height: 60px; */
         
       }
-      
 
-      .footer {
+.playPage .gameBanner .gameBannerbox .footer {
         width: 100%;
         opacity: 0.8;
         display: flex;
         justify-content: space-evenly;
         gap: 20px;
-        .gameMsg {
+      }
+
+.playPage .gameBanner .gameBannerbox .footer .gameMsg {
           display: flex;
           flex-direction: column;
           align-items: center;
           gap: 4px;
-          img {
+        }
+
+.playPage .gameBanner .gameBannerbox .footer .gameMsg img {
             width: 30px;
           }
-          .gameMsgNum{
+
+.playPage .gameBanner .gameBannerbox .footer .gameMsg .gameMsgNum{
             color: black;
             height: 20px;
           }
-        }
-      }
-    }
-  }
-  .playButton {
+
+.playPage .playButton {
     width: calc(100% - 100px);
     margin: 0 auto;
     cursor: pointer;
@@ -88,31 +96,36 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    &:hover {
+  }
+
+.playPage .playButton:hover {
       background-color: var(--color-background-light);
       color: var(--color-background1);
     }
-    img{
+
+.playPage .playButton img{
       width: 30px;
       height: 30px;
-      object-fit: cover;
+      -o-object-fit: cover;
+         object-fit: cover;
 
     }
-  }
-  .description {
+
+.playPage .description {
     width: calc(100% - 20px);
     margin: 0 auto;
     height: 140px;
     overflow: auto;
     background-color: rgba(0, 0, 0, 1);
-    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
     border-radius: 5px;
     padding: 10px 20px;
     line-height: 2rem;
     color: var(--color-background-light);
   }
 
-  .SimilarGame {
+.playPage .SimilarGame {
     width: calc(100% - 20px);
     margin: 0 auto;
     display: grid;
@@ -121,31 +134,31 @@
     grid-gap: 10px;
     justify-content: center;
     background-color: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
     border-radius: 5px;
     padding: 10px;
+  }
 
-    a{
+.playPage .SimilarGame a{
       width: 100%;
       height: 100%;
       display: flex;
     }
 
-    .gameItem {
-      img {
+.playPage .SimilarGame .gameItem img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        -o-object-fit: cover;
+           object-fit: cover;
         border-radius: 10px;
+      }
 
-        &:hover {
+.playPage .SimilarGame .gameItem img:hover {
           transform: scale(1.1);
         }
-      }
-    }
-  }
 
-  .HomeButton {
+.playPage .HomeButton {
     position: fixed;
     top: 0;
     left: 0;
@@ -153,33 +166,40 @@
     height: 70px;
     background-color: rgba(0, 0, 0, 0.5);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
     border-radius: 0 0 100% 0;
     color: var(--color-background-dark);
     display: flex;
     justify-content: center;
     align-items: center;
-    span {
+  }
+
+.playPage .HomeButton span {
       transform: translate(-10px, -10px);
     }
-    /* 禁止复制 */
-    user-select: none;
 
-    &:hover {
+.playPage .HomeButton {
+    /* 禁止复制 */
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+  }
+
+.playPage .HomeButton:hover {
       background-color: var(--color-background-dark);
       color: white;
     }
-    img {
+
+.playPage .HomeButton img {
       width: 40px;
       height: 40px;
-      object-fit: cover;
+      -o-object-fit: cover;
+         object-fit: cover;
       transform: translate(-5px, -5px);
     }
-  }
-}
 
-.playPage.loadingAnimation {
-  &::before {
+.playPage.loadingAnimation::before {
     content: "";
     display: block;
     position: absolute;
@@ -194,7 +214,8 @@
       var(--color-background-dark)
     ); /* 背景渐变色 */
   }
-  &::after {
+
+.playPage.loadingAnimation::after {
     content: "loading...";
     display: block;
     position: absolute;
@@ -208,4 +229,3 @@
     /* 字体抖动动画 */
     animation: shake 1.5s linear infinite, fadeIn 1.5s linear infinite;
   }
-}

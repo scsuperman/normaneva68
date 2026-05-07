@@ -1,0 +1,72 @@
+@media screen and (max-width: 500px) {
+  .font1 {
+    font-size: 1.2rem;
+    font-weight: 300;
+  }
+  .font2 {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+  .font3 {
+    font-size: 2rem;
+    font-weight: 500;
+  }
+  .font4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  .font5 {
+    font-size: 4rem;
+    font-weight: 800;
+  }
+    #playPage .introduce {
+      margin: 0;
+      margin: initial;
+      flex-wrap: nowrap;
+      overflow: auto;
+      width: 100vw;
+      height: 100vw;
+      gap: 0px;
+      justify-content: initial;
+    }
+
+      #playPage .introduce .gameBanner {
+        flex-shrink: 0;
+        padding: 0 10px;
+        width: 100%;
+      }
+
+        #playPage .introduce .gameBanner img {
+          width: 100%;
+        }
+    #playPage .message {
+      padding: 0 10px;
+      width: 100%;
+      max-width: 1000px;
+    }
+      #playPage .message .bgdContent {
+        justify-content: space-evenly;
+
+
+        gap: 10px;
+      }
+        #playPage .message .bgdContent .title {
+          text-align: center;
+        }
+        #playPage .message .bgdContent .category {
+          font-size: 1.8rem;
+        }
+        #playPage .message .bgdContent .pubDate {
+          max-width: 90%;
+          overflow: visible;
+          overflow: initial;
+          text-overflow: initial;
+          white-space: wrap;
+          text-align: center;
+        }
+    #playPage .SimilarGame {
+      grid-auto-rows: initial;
+      grid-template-columns: repeat(5, 1fr);
+      grid-gap: 5px;
+    }
+}

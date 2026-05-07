@@ -5,38 +5,48 @@
   width: 100%;
   /* height: 100vh; */
   overflow: auto;
-  .header {
+}
+
+.indexPage .header {
     /* position: fixed; */
     position: relative;
     top: 0;
     z-index: 3;
     width: 100%;
     background-image: url(../assets/di.jpg);
-    .top-bar {
+  }
+
+.indexPage .header .top-bar {
       display: flex;
       gap: 10px;
       justify-content: space-between;
       padding: 10px;
       /* background-color: var(--color-background-light2); */
-      .logo {
+    }
+
+.indexPage .header .top-bar .logo {
         display: flex;
-        img {
+      }
+
+.indexPage .header .top-bar .logo img {
           box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.3);
           border-radius: 10px;
           width: 100px;
           /* height: 50px; */
-          object-fit: cover;
+          -o-object-fit: cover;
+             object-fit: cover;
           margin: auto;
         }
-      }
 
-      .menu-icons {
+.indexPage .header .top-bar .menu-icons {
         margin: auto 10px;
         cursor: pointer;
         display: flex;
         align-items: center;
         gap: 20px;
-        .search-bar {
+      }
+
+.indexPage .header .top-bar .menu-icons .search-bar {
           width: 150px;
           display: flex;
           align-items: center;
@@ -45,22 +55,23 @@
           border-radius: 20px;
           border: 1px solid black;
           background-color: var(--color-background-light);
-          .icon {
+        }
+
+.indexPage .header .top-bar .menu-icons .search-bar .icon {
             display: flex;
             align-items: center;
-            object-fit: cover;
+            -o-object-fit: cover;
+               object-fit: cover;
             width: 30px;
             height: 30px;
           }
-          .fenlei {
+
+.indexPage .header .top-bar .menu-icons .search-bar .fenlei {
             width: 24px;
             height: 24px;
           }
-        }
-      }
-    }
 
-    .menuFloatContent {
+.indexPage .header .menuFloatContent {
       position: absolute;
       z-index: 1;
       top: 100%;
@@ -78,15 +89,19 @@
       height: 70vh;
       overflow: auto;
       border-radius: 0 0 0 10px;
-      &.hidden {
+    }
+
+.indexPage .header .menuFloatContent.hidden {
         display: none;
       }
-      .categoryItem {
+
+.indexPage .header .menuFloatContent .categoryItem {
         color: var(--color-background-light);
         border: 1px solid var(--color-background-light);
         border-radius: 10px;
+      }
 
-        a {
+.indexPage .header .menuFloatContent .categoryItem a {
           display: flex;
           align-items: center;
           gap: 10px;
@@ -96,49 +111,57 @@
           padding-left: calc(50% - 50px);
           cursor: pointer;
           transition: 0.3s;
-          .categoryName {
+        }
+
+.indexPage .header .menuFloatContent .categoryItem a .categoryName {
             background: linear-gradient(to right, #21fefe, #8174fe);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-transform: uppercase;
           }
 
-          &:hover {
+.indexPage .header .menuFloatContent .categoryItem a:hover {
             background-color: var(--color-background-light);
             color: var(--color-background1);
           }
-          img {
+
+.indexPage .header .menuFloatContent .categoryItem a img {
             width: 30px;
             height: 30px;
-            object-fit: cover;
+            -o-object-fit: cover;
+               object-fit: cover;
           }
-        }
-      }
-    }
-    .categoryList {
+
+.indexPage .header .categoryList {
       /* position: absolute; */
       /* top: 100px; */
       width: 100%;
       display: flex;
       justify-content: center;
       /* background: var(--color-background1); */
+    }
 
-      .centerContent {
+.indexPage .header .categoryList .centerContent {
         display: flex;
         gap: 10px;
         overflow: auto;
         width: calc(100% - 20px);
         padding: 20px 0;
         scroll-snap-type: x mandatory;
-        &::-webkit-scrollbar {
+      }
+
+.indexPage .header .categoryList .centerContent::-webkit-scrollbar {
           width: 0;
           height: 0;
         }
-        .categoryItem {
+
+.indexPage .header .categoryList .centerContent .categoryItem {
           color: white;
           padding: 10px 50px;
           cursor: pointer;
-          user-select: none;
+          -webkit-user-select: none;
+             -moz-user-select: none;
+                  user-select: none;
           transition: 0.3s;
           border-radius: calc(infinity * 1px);
           background-size: 200% 100%;
@@ -154,16 +177,22 @@
           /* 大写 */
           text-transform: uppercase;
           font-weight: bolder;
-          img {
+        }
+
+.indexPage .header .categoryList .centerContent .categoryItem img {
             width: 20px;
             height: 20px;
           }
-          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
-          &:hover {
-            color: #ffff00db;
+.indexPage .header .categoryList .centerContent .categoryItem {
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+
+.indexPage .header .categoryList .centerContent .categoryItem:hover {
+            color: rgba(255,255,0,0.85882);
           }
-          /* &:nth-child(1) {
+
+/* &:nth-child(1) {
             background: #d1b500;
           }
 
@@ -246,21 +275,21 @@
           &:nth-child(21) {
             background: #689f38;
           } */
-        }
-      }
-    }
-  }
 
-  swiper-container {
+.indexPage swiper-container {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 10px;
     /* margin-top: 20px; */
     /* height: 500px; */
-    swiper-slide {
+  }
+
+.indexPage swiper-container swiper-slide {
       text-align: center;
-      a {
+    }
+
+.indexPage swiper-container swiper-slide a {
         width: 100%;
         /* height: 100%; */
         height: 300px;
@@ -270,16 +299,19 @@
         overflow: hidden;
         box-shadow: 6px 0px 4px 0 rgba(0, 0, 0, 0.3);
       }
-      img {
+
+.indexPage swiper-container swiper-slide img {
         position: relative;
         z-index: -1;
         display: block;
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        -o-object-fit: cover;
+           object-fit: cover;
         background-color: var(--color-background-light2);
       }
-      .nameBox {
+
+.indexPage swiper-container swiper-slide .nameBox {
         position: absolute;
         bottom: 20px;
         left: 50%;
@@ -289,16 +321,16 @@
         /* text-align: left; */
         color: var(--color-background-light);
       }
-    }
-  }
 
-  .main-content {
+.indexPage .main-content {
     width: 90%;
     max-width: 1500px;
     margin: 0 auto;
     padding: 20px;
     padding-top: 0;
-    .search-bar {
+  }
+
+.indexPage .main-content .search-bar {
       background-color: var(--color-background-light2);
       border-radius: calc(infinity * 1px);
       border: 2px solid var(--color-background-light2);
@@ -308,48 +340,58 @@
       margin-top: -60px;
       position: relative;
       z-index: 1;
+    }
 
-      .icon {
+.indexPage .main-content .search-bar .icon {
         font-size: 20px;
         margin: auto 10px;
       }
-    }
-    h2 {
+
+.indexPage .main-content h2 {
       color: black !important;
       padding: 20px 0;
       display: flex;
       align-items: center;
       gap: 10px;
       font-size: 20px;
-      img {
-        height: 30px;
-        aspect-ratio: 1/1;
-        object-fit: cover;
-      }
     }
 
-    .slot {
-      h2 {
+.indexPage .main-content h2 img {
+        height: 30px;
+        aspect-ratio: 1/1;
+        -o-object-fit: cover;
+           object-fit: cover;
+      }
+
+.indexPage .main-content .slot h2 {
         color: var(--color-background-light);
         padding: 20px 0;
         display: flex;
         align-items: center;
         gap: 10px;
-        img {
+      }
+
+.indexPage .main-content .slot h2 img {
           height: 30px;
           aspect-ratio: 1/1;
-          object-fit: cover;
+          -o-object-fit: cover;
+             object-fit: cover;
         }
-      }
-      .slotGameGridBox {
+
+.indexPage .main-content .slot .slotGameGridBox {
         display: grid;
         grid-auto-rows: 150px;
         grid-template-columns: repeat(6, 1fr);
+        grid-gap: 14px;
         gap: 14px;
         padding: 10px 0;
-        .game-item {
+      }
+
+.indexPage .main-content .slot .slotGameGridBox .game-item {
           position: relative;
-          &::before {
+        }
+
+.indexPage .main-content .slot .slotGameGridBox .game-item::before {
             content: "";
             display: block;
             position: absolute;
@@ -357,7 +399,9 @@
             width: 50px;
             height: 50px;
 
-            object-fit: cover;
+            -o-object-fit: cover;
+
+               object-fit: cover;
             top: 0;
             left: -8px;
             background-image: url(../assets/huore.png);
@@ -365,30 +409,34 @@
             background-size: 100%;
             background-position: 0 0;
           }
-          a {
+
+.indexPage .main-content .slot .slotGameGridBox .game-item a {
             width: 100%;
             height: 100%;
             display: flex;
             position: relative;
             box-shadow: 6px 0px 4px 0 rgba(0, 0, 0, 0.3);
-
-            img {
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
-            }
           }
 
-          .gameImg {
+.indexPage .main-content .slot .slotGameGridBox .game-item a img {
+              width: 100%;
+              height: 100%;
+              -o-object-fit: cover;
+                 object-fit: cover;
+            }
+
+.indexPage .main-content .slot .slotGameGridBox .game-item .gameImg {
             display: block;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            -o-object-fit: cover;
+               object-fit: cover;
             border-radius: 30px;
             /* border: 10px solid var(--color-background-light2); */
             background-color: var(--color-background-light2);
           }
-          .nameBox {
+
+.indexPage .main-content .slot .slotGameGridBox .game-item .nameBox {
             position: absolute;
             bottom: 0;
             left: 0;
@@ -399,41 +447,45 @@
             background-color: #847ff9;
             /* color: var(--color-background-light); */
             /* border-radius: 0 0 30px 30px; */
-            .mark,
-            .play {
-              display: none;
-            }
           }
 
-          &:nth-last-child(1) {
+.indexPage .main-content .slot .slotGameGridBox .game-item .nameBox .mark,.indexPage .main-content .slot .slotGameGridBox .game-item .nameBox .play {
+              display: none;
+            }
+
+.indexPage .main-content .slot .slotGameGridBox .game-item:nth-last-child(1) {
             grid-row: span 1;
             grid-column: span 2;
           }
-        }
-      }
-    }
 
-    .hot {
-      h2 {
+.indexPage .main-content .hot h2 {
         color: var(--color-background-light);
         padding: 20px 0;
         display: flex;
         align-items: center;
         gap: 10px;
-        img {
+      }
+
+.indexPage .main-content .hot h2 img {
           height: 30px;
           aspect-ratio: 1/1;
-          object-fit: cover;
+          -o-object-fit: cover;
+             object-fit: cover;
         }
-      }
-      .hotGameGridBox {
+
+.indexPage .main-content .hot .hotGameGridBox {
         display: grid;
         grid-auto-rows: 100px;
         grid-template-columns: repeat(8, 1fr);
+        grid-gap: 14px;
         gap: 14px;
-        .game-item {
+      }
+
+.indexPage .main-content .hot .hotGameGridBox .game-item {
           position: relative;
-          &::before {
+        }
+
+.indexPage .main-content .hot .hotGameGridBox .game-item::before {
             content: "";
             display: block;
             position: absolute;
@@ -441,7 +493,9 @@
             width: 50px;
             height: 50px;
 
-            object-fit: cover;
+            -o-object-fit: cover;
+
+               object-fit: cover;
             top: 0;
             left: -8px;
             background-image: url(../assets/huore.png);
@@ -449,7 +503,8 @@
             background-size: 100%;
             background-position: 0 0;
           }
-          a {
+
+.indexPage .main-content .hot .hotGameGridBox .game-item a {
             width: 100%;
             height: 100%;
             display: flex;
@@ -459,18 +514,20 @@
             background-position: center;
           }
 
-          .gameImg {
+.indexPage .main-content .hot .hotGameGridBox .game-item .gameImg {
             display: block;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            -o-object-fit: cover;
+               object-fit: cover;
             border-radius: 30px;
             /* border: 10px solid var(--color-background-light2); */
             box-shadow: 6px 0px 4px 0 rgba(0, 0, 0, 0.3);
 
             background-color: var(--color-background-light2);
           }
-          .nameBox {
+
+.indexPage .main-content .hot .hotGameGridBox .game-item .nameBox {
             position: absolute;
             bottom: 0;
             left: 0;
@@ -481,48 +538,52 @@
             background-color: #847ff9;
             /* color: var(--color-background-light); */
             border-radius: 0 0 30px 30px;
+          }
 
-            .title {
+.indexPage .main-content .hot .hotGameGridBox .game-item .nameBox .title {
               /* 超出一行省略号 */
               white-space: nowrap;
               overflow: hidden;
               text-overflow: ellipsis;
             }
-            .mark,
-            .play {
+
+.indexPage .main-content .hot .hotGameGridBox .game-item .nameBox .mark,.indexPage .main-content .hot .hotGameGridBox .game-item .nameBox .play {
               display: none;
             }
-          }
 
-          /* &:nth-child(4) {
+/* &:nth-child(4) {
             grid-row: span 1;
             grid-column: span 1;
           } */
-        }
-      }
-    }
 
-    .newGame {
-      h2 {
+.indexPage .main-content .newGame h2 {
         color: var(--color-background-light);
         padding: 20px 0;
         display: flex;
         align-items: center;
         gap: 10px;
-        img {
+      }
+
+.indexPage .main-content .newGame h2 img {
           height: 30px;
           aspect-ratio: 1/1;
-          object-fit: cover;
+          -o-object-fit: cover;
+             object-fit: cover;
         }
-      }
-      .newGameGridBox {
+
+.indexPage .main-content .newGame .newGameGridBox {
         display: grid;
         grid-auto-rows: 150px;
         grid-template-columns: repeat(6, 1fr);
+        grid-gap: 30px;
         gap: 30px;
-        .game-item {
+      }
+
+.indexPage .main-content .newGame .newGameGridBox .game-item {
           position: relative;
-          &::before {
+        }
+
+.indexPage .main-content .newGame .newGameGridBox .game-item::before {
             content: "";
             display: block;
             position: absolute;
@@ -530,7 +591,9 @@
             width: 50px;
             height: 50px;
 
-            object-fit: cover;
+            -o-object-fit: cover;
+
+               object-fit: cover;
             top: 0;
             left: -8px;
             background-image: url(../assets/xin.png);
@@ -538,24 +601,27 @@
             background-size: 100%;
             background-position: 0 0;
           }
-          a {
+
+.indexPage .main-content .newGame .newGameGridBox .game-item a {
             width: 100%;
             height: 100%;
             display: flex;
             position: relative;
           }
 
-          .gameImg {
+.indexPage .main-content .newGame .newGameGridBox .game-item .gameImg {
             display: block;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            -o-object-fit: cover;
+               object-fit: cover;
             border-radius: 30px;
             /* border: 10px solid var(--color-background-light2); */
             background-color: var(--color-background-light2);
             box-shadow: 6px 0px 4px 0 rgba(0, 0, 0, 0.3);
           }
-          .nameBox {
+
+.indexPage .main-content .newGame .newGameGridBox .game-item .nameBox {
             position: absolute;
             bottom: 0;
             left: 0;
@@ -565,199 +631,214 @@
             background-color: #847ff9;
             color: var(--color-background-light);
             /* border-radius: 0 0 30px 30px; */
-            .title {
+          }
+
+.indexPage .main-content .newGame .newGameGridBox .game-item .nameBox .title {
               /* 超出一行省略号 */
               white-space: nowrap;
               overflow: hidden;
               text-overflow: ellipsis;
             }
-            .mark,
-            .play {
+
+.indexPage .main-content .newGame .newGameGridBox .game-item .nameBox .mark,.indexPage .main-content .newGame .newGameGridBox .game-item .nameBox .play {
               display: none;
             }
-          }
-        }
-      }
-    }
 
-    .threeD {
-      h2 {
+.indexPage .main-content .threeD h2 {
         padding: 20px 0;
         color: var(--color-background-light);
         display: flex;
         justify-content: space-between;
         align-items: center;
-        .left {
+      }
+
+.indexPage .main-content .threeD h2 .left {
           display: flex;
           align-items: center;
           gap: 10px;
-          img {
+        }
+
+.indexPage .main-content .threeD h2 .left img {
             height: 30px;
             aspect-ratio: 1/1;
-            object-fit: cover;
+            -o-object-fit: cover;
+               object-fit: cover;
           }
-        }
 
-        .more-link {
+.indexPage .main-content .threeD h2 .more-link {
           cursor: pointer;
         }
-      }
 
-      .threeDGameGridBox {
+.indexPage .main-content .threeD .threeDGameGridBox {
         display: flex;
         flex-wrap: wrap;
         padding: 10px 0;
         background-color: var(--color-background-light2);
         border-radius: 10px;
-        .game-item {
+      }
+
+.indexPage .main-content .threeD .threeDGameGridBox .game-item {
           width: calc(100% / 6);
           transform: scale(0.9);
           transition: all 0.3s;
-          .title {
+        }
+
+.indexPage .main-content .threeD .threeDGameGridBox .game-item .title {
             display: none;
           }
-          &:hover {
+
+.indexPage .main-content .threeD .threeDGameGridBox .game-item:hover {
             transform: scale(1);
           }
-          a {
+
+.indexPage .main-content .threeD .threeDGameGridBox .game-item a {
             width: 100%;
             height: 100%;
             display: flex;
           }
 
-          img {
+.indexPage .main-content .threeD .threeDGameGridBox .game-item img {
             display: block;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            -o-object-fit: cover;
+               object-fit: cover;
             border-radius: 30px;
             /* border: 10px solid var(--color-background-light2); */
             background-color: var(--color-background-light2);
             box-shadow: 6px 0px 4px 0 rgba(0, 0, 0, 0.3);
           }
-        }
-      }
-    }
-    .Adventure {
-      h2 {
+
+.indexPage .main-content .Adventure h2 {
         padding: 20px 0;
         color: var(--color-background-light);
         display: flex;
         justify-content: space-between;
         align-items: center;
-        .left {
+      }
+
+.indexPage .main-content .Adventure h2 .left {
           display: flex;
           align-items: center;
           gap: 10px;
-          img {
-            height: 30px;
-            aspect-ratio: 1/1;
-            object-fit: cover;
-          }
         }
 
-        .more-link {
+.indexPage .main-content .Adventure h2 .left img {
+            height: 30px;
+            aspect-ratio: 1/1;
+            -o-object-fit: cover;
+               object-fit: cover;
+          }
+
+.indexPage .main-content .Adventure h2 .more-link {
           cursor: pointer;
         }
-      }
-      .AdventureGameGridBox {
+
+.indexPage .main-content .Adventure .AdventureGameGridBox {
         display: flex;
         flex-wrap: wrap;
         padding: 10px 0;
         background-color: var(--color-background-light2);
         border-radius: 10px;
-        .game-item {
+      }
+
+.indexPage .main-content .Adventure .AdventureGameGridBox .game-item {
           width: calc(100% / 6);
           transform: scale(0.9);
           transition: all 0.3s;
-          .title {
+        }
+
+.indexPage .main-content .Adventure .AdventureGameGridBox .game-item .title {
             display: none;
           }
-          &:hover {
+
+.indexPage .main-content .Adventure .AdventureGameGridBox .game-item:hover {
             transform: scale(1);
           }
 
-          a {
+.indexPage .main-content .Adventure .AdventureGameGridBox .game-item a {
             width: 100%;
             height: 100%;
             display: flex;
           }
 
-          img {
+.indexPage .main-content .Adventure .AdventureGameGridBox .game-item img {
             display: block;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            -o-object-fit: cover;
+               object-fit: cover;
             border-radius: 30px;
             /* border: 10px solid var(--color-background-light2); */
             background-color: var(--color-background-light2);
             box-shadow: 6px 0px 4px 0 rgba(0, 0, 0, 0.3);
           }
-        }
-      }
-    }
-    .Boys {
-      h2 {
+
+.indexPage .main-content .Boys h2 {
         padding: 20px 0;
         color: var(--color-background-light);
         display: flex;
         justify-content: space-between;
         align-items: center;
-        .left {
+      }
+
+.indexPage .main-content .Boys h2 .left {
           display: flex;
           align-items: center;
           gap: 10px;
-          img {
-            height: 30px;
-            aspect-ratio: 1/1;
-            object-fit: cover;
-          }
         }
 
-        .more-link {
+.indexPage .main-content .Boys h2 .left img {
+            height: 30px;
+            aspect-ratio: 1/1;
+            -o-object-fit: cover;
+               object-fit: cover;
+          }
+
+.indexPage .main-content .Boys h2 .more-link {
           cursor: pointer;
         }
-      }
-      .BoysGameGridBox {
+
+.indexPage .main-content .Boys .BoysGameGridBox {
         display: flex;
         flex-wrap: wrap;
         padding: 10px 0;
         background-color: var(--color-background-light2);
         border-radius: 10px;
-        .game-item {
+      }
+
+.indexPage .main-content .Boys .BoysGameGridBox .game-item {
           width: calc(100% / 6);
           transform: scale(0.9);
           transition: all 0.3s;
-          .title {
+        }
+
+.indexPage .main-content .Boys .BoysGameGridBox .game-item .title {
             display: none;
           }
-          &:hover {
+
+.indexPage .main-content .Boys .BoysGameGridBox .game-item:hover {
             transform: scale(1);
           }
 
-          a {
+.indexPage .main-content .Boys .BoysGameGridBox .game-item a {
             width: 100%;
             height: 100%;
             display: flex;
           }
 
-          img {
+.indexPage .main-content .Boys .BoysGameGridBox .game-item img {
             display: block;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            -o-object-fit: cover;
+               object-fit: cover;
             border-radius: 30px;
             /* border: 10px solid var(--color-background-light2); */
             background-color: var(--color-background-light2);
             box-shadow: 6px 0px 4px 0 rgba(0, 0, 0, 0.3);
           }
-        }
-      }
-    }
-  }
-}
-.indexPage.loadingAnimation {
-  &::before {
+.indexPage.loadingAnimation::before {
     content: "";
     display: block;
     position: absolute;
@@ -773,7 +854,7 @@
     background-size: cover;
     background-position: center;
   }
-  &::after {
+.indexPage.loadingAnimation::after {
     content: "loading...";
     display: block;
     position: absolute;
@@ -787,7 +868,6 @@
     /* 字体抖动动画 */
     animation: shake 1.5s linear infinite, fadeIn 1.5s linear infinite;
   }
-}
 
 .site-info-area {
   max-width: 1500px;
@@ -808,15 +888,15 @@
   border-radius: 15px;
   padding: 15px;
   line-height: 1.5;
+}
 
-  .policy {
+.shengming .policy {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
 
-    a {
+.shengming .policy a {
       /* color: initial; */
       /* color: black; */
     }
-  }
-}
