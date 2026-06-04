@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" cyan>
 
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,7 @@
     <title>MOM|GAMES</title>
     <link rel="icon" href="logo.png" />
     <link rel="stylesheet" href="prod-css/index.css">
-    <script src="./assets/js/swiper-element-bundle.min.js"></script>
+    <!-- <script src="./assets/js/swiper-element-bundle.min.js"></script> -->
 </head>
 
 <body>
@@ -16,140 +16,105 @@
         <header class="header">
             <div class="top-bar">
                 <div class="logo">
-                    <img src="logo copy.png" alt="" srcset="">
+                    <img src="logo.png" alt="" srcset="">
                 </div>
+                <a href="search.html" class="search-bar">
+                    <div class="icon">
+                        <img src="./assets/Search@3x.png" alt="" srcset="">
+                    </div>
 
+                </a>
 
-                <div class="menu-icons">
-
-                    <a href="search.html" class="search-bar">
-                        <div class="icon">🔍</div>
-                        <!-- <img class="icon" src="./assets/sousuo copy.png" alt="" srcset=""> -->
-
-                    </a>
-
-                    <img onclick="switchMenu()" class="icon fenlei" src="./assets/fenlei copy.png" alt="" srcset="">
+                <div class="menu-icons" onclick="switchMenu()">
+                    <img class="icon" src="./assets/menu@3x.png" alt="" srcset="">
                 </div>
             </div>
             <div class="menuFloatContent hidden">
             </div>
-
-            <div class="categoryList">
-                <div class="centerContent" onclick="changeCategory(event)">
-                    <!-- <div class="categoryItem" data-category="0" class="active"><img src="./assets/1.png" alt="">
-                        All
-                    </div> -->
-                    <div class="categoryItem" data-category="1"><img src="./assets/2.png" alt=""> .IO</div>
-                    <div class="categoryItem" data-category="2"><img src="./assets/3.png" alt="">2Player</div>
-                    <div class="categoryItem" data-category="3"><img src="./assets/4.png" alt="">3D</div>
-                    <div class="categoryItem" data-category="4"><img src="./assets/5.png" alt="">Adventure</div>
-                    <div class="categoryItem" data-category="5"> <img src="./assets/6.png" alt=""> Arcade</div>
-                    <div class="categoryItem" data-category="6"> <img src="./assets/7.png" alt=""> Bejeweled</div>
-                    <div class="categoryItem" data-category="7"> <img src="./assets/8.png" alt=""> Boys</div>
-                    <div class="categoryItem" data-category="8"> <img src="./assets/9.png" alt=""> Clicker</div>
-                    <div class="categoryItem" data-category="9"> <img src="./assets/sports.png" alt=""> Cooking</div>
-                    <div class="categoryItem" data-category="10"> <img src="./assets/shooters.png" alt=""> Girls</div>
-                    <div class="categoryItem" data-category="11"> <img src="./assets/racing.png" alt=""> Hypercasual
-                    </div>
-                    <div class="categoryItem" data-category="12"> <img src="./assets/1.png" alt=""> Multiplayer</div>
-                    <div class="categoryItem" data-category="13"> <img src="./assets/2.png" alt=""> Puzzle</div>
-                    <div class="categoryItem" data-category="14"> <img src="./assets/3.png" alt=""> Racing</div>
-                    <div class="categoryItem" data-category="15"> <img src="./assets/4.png" alt=""> Shooting</div>
-                    <div class="categoryItem" data-category="16"> <img src="./assets/5.png" alt=""> Soccer</div>
-                    <div class="categoryItem" data-category="17"> <img src="./assets/6.png" alt=""> Sports</div>
-                    <div class="categoryItem" data-category="18"> <img src="./assets/7.png" alt=""> Stickman</div>
-                    <div class="categoryItem" data-category="19"> <img src="./assets/8.png" alt=""> Baby Hazel</div>
-                </div>
-
-            </div>
-
         </header>
-
-
-        <div class="ad-center-box" style="width: 100%; display: flex; justify-content: center; margin: 20px auto;">
-            <div style="width: 100%; max-width: 728px; text-align: center;">
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5899441324359347"
-                crossorigin="anonymous"></script>
-                <!-- mo_erhtu_com_display_01 -->
-                <ins class="adsbygoogle"
-                    style="display:block"
-                    data-ad-client="ca-pub-5899441324359347"
-                    data-ad-slot="5006059485"
-                    data-ad-format="auto"
-                    data-full-width-responsive="true"></ins>
-                <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
-        </div>
-
-        <swiper-container init="false" class="gameSwiper" navigation="false" pagination="true"
-            pagination-clickable="true" space-between="10" slides-per-view="1" breakpoints='{
-            "1200": {
-                "slidesPerView": 5
-            },
-            "700": {
-                "slidesPerView": 3
-            }
-        }'>
-        </swiper-container>
 
         <main class="main-content">
 
+            <div class="banner">
+                <img src="./assets/banner@3x.png" alt="" srcset="">
 
 
-            <!-- <a href="search.html" class="search-bar">
-                <div class="icon">🔍</div>
-            </a> -->
+            </div>
+
 
             <section class="hot font2">
-                <h2> <img src="./assets/2 copy.png" alt=""> HOT</h2>
+                <h2>
+                    HOT
+                    <img src="./assets/more@3x.png" alt="">
+                </h2>
+
+                <div class="ad-center-box" style="width: 100%; display: flex; justify-content: center; margin: 20px auto;">
+                    <div style="width: 100%; max-width: 728px; text-align: center;">
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5899441324359347"
+                        crossorigin="anonymous"></script>
+                        <!-- mo_erhtu_com_display_01 -->
+                        <ins class="adsbygoogle"
+                            style="display:block"
+                            data-ad-client="ca-pub-5899441324359347"
+                            data-ad-slot="5006059485"
+                            data-ad-format="auto"
+                            data-full-width-responsive="true"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                </div>
+
                 <div class="hotGameGridBox">
-
-
+                
                 </div>
             </section>
 
+        
+
             <section class="newGame font2">
-                <h2> <img src="./assets/3 copy.png" alt="">NEW</h2>
+                <h2>
+                    NEW
+                    <img src="./assets/more@3x.png" alt="">
+                </h2>
                 <div class="newGameGridBox">
 
                 </div>
             </section>
 
-            <section class="threeD font2">
+            <!-- <section class="threeD font2">
                 <h2>
-                    <div class="left"><img src="./assets/2 copy.png" alt="">threeD</div>
+                    <span class="categoryName">threeD</span>
                     <a href="search.html?category=3D" class="more-link">more &gt;</a>
+
                 </h2>
                 <div class="threeDGameGridBox">
 
                 </div>
             </section>
 
-            <!-- <section class="Adventure font2">
+            <section class="Adventure font2">
                 <h2>
-                    <div class="left"><img src="./assets/4 copy.png" alt="">Adventure</div>
-
+                    <span>Adventure</span>
                     <a href="search.html?category=Adventure" class="more-link">more &gt;</a>
                 </h2>
                 <div class="AdventureGameGridBox">
                 </div>
-            </section> -->
+            </section>
 
-            <!-- <section class="Boys font2">
+            <section class="Girls font2">
                 <h2>
-                    <div class="left"><img src="./assets/5 copy.png" alt="">Boys</div>
-
-                    <a href="search.html?category=Boys" class="more-link">more &gt;</a>
+                    <span>Girls</span>
+                    <a href="search.html?category=Girls" class="more-link">more &gt;</a>
                 </h2>
-                <div class="BoysGameGridBox">
+                <div class="GirlsGameGridBox">
                 </div>
             </section> -->
+
         </main>
 
         <div class="site-info-area font1">
-            <h2 style="text-align: center">
+            <h2 style="text-align: left">
                 If you enjoy our site, learn more about GAME!
             </h2>
 
@@ -181,7 +146,7 @@
 
         </div>
         <div class="shengming font1">
-            <h3 style="text-align: center">About Us</h3>
+            <h3 style="text-align: left">About Us</h3>
             <div>
                 User Responsibility: Users shall bear full responsibility for the
                 content they provide in accordance with the law, and the platform shall
@@ -199,152 +164,49 @@
             </div>
         </div>
 
-
-
-
-
     </div>
 </body>
 <script type="module">
     import { getGamesListApi } from "./assets/js/business.js";
     let gamesListIndex = 0
-    let GameList = await getGamesListApi({ num: 50 });
-
-    GameList.slice(0, gamesListIndex += 10).forEach((item) => {
-        const swiperSlide = document.createElement('swiper-slide');
-        swiperSlide.innerHTML = `
-        <a href="play.html?title=${item.title}">
-            <img src="${item.thumb}" alt="">
-            <div class="font1 nameBox font2">${item.title}</div>
-        </a>`;
-        document.querySelector('.gameSwiper').appendChild(swiperSlide);
-    });
+    let GameList = await getGamesListApi({ num: 50,page:5 });
 
 
-
-
-
-    const swiperEl = document.querySelector('swiper-container')
-
-    const params = {
-        injectStyles: [`
-        // .swiper{
-        //    padding-bottom: 30px; /* 为pagination留出空间 */
-        // }
-        // .swiper-pagination{
-        //     --swiper-pagination-bottom: 70px;
-        //     // transform:translateY(50px);
-        //     right: 10px;
-        //     width: fit-content !important;
-        //     left: auto !important;
-        // }
-        .swiper-pagination-bullet {
-            width: 10px;
-            height: 10px;
-            text-align: center;
-            line-height: 10px;
-            font-size: 12px;
-            color: #000;
-            opacity: 1;
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .swiper-pagination-bullet-active {
-            color: #fff;
-            background:  #fff;
-        }
-  `],
-        // pagination: {
-        //     clickable: true,
-        //     renderBullet: function (index, className) {
-        //         return '<span class="' + className + '">' + (index + 1) + "</span>";
-        //     },
-        // },
-    }
-
-    Object.assign(swiperEl, params)
-
-    swiperEl.initialize();
-
-
-    window.changeCategory = function (event) {
-        const category = event.target.getAttribute("data-category");
-
-        if (category) {
-            import("./assets/js/business.js").then((res) => {
-
-                location.href = "search.html?category=" + res.getGamesListCategory[ Number(category) - 1];
-
-
-            })
-        }
-
-
-
-    }
-
-
-    let hotGameList = GameList.slice(gamesListIndex, gamesListIndex += 16)
-    hotGameList.forEach((item) => {
-        const hotGameItem = document.createElement('div');
-        // 写一个3.5到5的随机数，保留一位小数
-        let randomNum = (Math.random() * 1.5 + 3.5).toFixed(1)
-        hotGameItem.className = 'game-item';
-        hotGameItem.innerHTML = `
-            <a href="play.html?title=${item.title}">
-                <img class="gameImg" src="${item.thumb}" alt="">
-                <div class="font3 nameBox">
-                    <div class="title font1">${item.title}</div>
-                     <div class="mark font2">
-                        <img src="./assets/star.png" alt="">
-                        ${randomNum}</div>
-                    <div class="play font3">play</div>
-                </div>
-            </a>
-      `;
-
-        document.querySelector('.hotGameGridBox').appendChild(hotGameItem);
-
-
-    })
-
-    let newGameList = GameList.slice(gamesListIndex, gamesListIndex += 6)
+    let newGameList = GameList.slice(gamesListIndex, gamesListIndex += 24)
     newGameList.forEach((item) => {
         const newGameItem = document.createElement('div');
-        // 写一个3.5到5的随机数，保留一位小数
-        let randomNum = (Math.random() * 1.5 + 3.5).toFixed(1)
         newGameItem.className = 'game-item';
         newGameItem.innerHTML = `
-             <a href="play.html?title=${item.title}">
-                <img class="gameImg" src="${item.thumb}" alt="">
-                <div class="font3 nameBox">
-                    <div class="title font1">${item.title}</div>
-                     <div class="mark font2">
-                        <img src="./assets/star.png" alt="">
-                        ${randomNum}</div>
-                    <div class="play font3">play</div>
-                </div>
+            <a href="play.html?title=${item.title}">
+                <img src="${item.thumb}" alt="">
+                 <div class="font1 nameBox">${item.title}</div>
             </a>
             `;
         document.querySelector('.newGameGridBox').appendChild(newGameItem);
     })
 
+
+    // document.querySelectorAll('.categoryName').forEach((item) => {
+    //     item.innerHTML = '3D'
+    // })
+    // let threeDGameList = await getGamesListApi({ num: 12, category: 3 });
+    // threeDGameList.forEach((item) => {
+    //     const threeDGameItem = document.createElement('div');
+    //     threeDGameItem.className = 'game-item';
+    //     threeDGameItem.innerHTML = `
+    //         <a href="play.html?title=${item.title}">
+    //             <img src="${item.thumb}" alt="">
+    //             <div class="font3 nameBox">${item.title}</div>
+    //         </a>
+    //         `;
+
+
+    //     document.querySelector('.threeDGameGridBox').appendChild(threeDGameItem);
+    // })
+
     // 关闭首评加载动画的时机
     document.querySelector('.indexPage').classList.toggle('loadingAnimation', false)
-    // 关闭首评加载动画的时机
 
-    let threeDGameList = await getGamesListApi({ num: 12, category: 3 });
-    threeDGameList.forEach((item) => {
-        const threeDGameItem = document.createElement('div');
-        threeDGameItem.className = 'game-item';
-        threeDGameItem.innerHTML = `
-            <a href="play.html?title=${item.title}">
-                <img src="${item.thumb}" alt="">
-                <div class="title font4">${item.title}</div>
-            </a>
-            `;
-        document.querySelector('.threeDGameGridBox').appendChild(threeDGameItem);
-    })
 
     // let AdventureGameList = await getGamesListApi({ num: 12, category: 4 });
     // AdventureGameList.forEach((item) => {
@@ -353,7 +215,6 @@
     //     AdventureGameItem.innerHTML = `
     //         <a href="play.html?title=${item.title}">
     //             <img src="${item.thumb}" alt="">
-    //             <div class="title font4">${item.title}</div>
     //         </a>
     //         `;
 
@@ -361,42 +222,41 @@
     //     document.querySelector('.AdventureGameGridBox').appendChild(AdventureGameItem);
     // })
 
-
-    // let BoysGameGridList = await getGamesListApi({ num: 12, category: 7 });
-    // BoysGameGridList.forEach((item) => {
-    //     const AdventureGameItem = document.createElement('div');
-    //     AdventureGameItem.className = 'game-item';
-    //     AdventureGameItem.innerHTML = `
+    // let GirlsGameList = await getGamesListApi({ num: 12, category: 4 });
+    // GirlsGameList.forEach((item) => {
+    //     const GirlsGameItem = document.createElement('div');
+    //     GirlsGameItem.className = 'game-item';
+    //     GirlsGameItem.innerHTML = `
     //         <a href="play.html?title=${item.title}">
     //             <img src="${item.thumb}" alt="">
-    //             <div class="title font4">${item.title}</div>
     //         </a>
     //         `;
 
 
-    //     document.querySelector('.BoysGameGridBox').appendChild(AdventureGameItem);
+    //     document.querySelector('.GirlsGameGridBox').appendChild(GirlsGameItem);
     // })
-
     import("./assets/js/business.js").then((res) => {
         let menuFloatContent = document.querySelector('.menuFloatContent')
         res.getGamesListCategory
-            .forEach((item, index) => {
+            .forEach((item,index) => {
                 let div = document.createElement('div')
-                div.className = 'categoryItem font4'
+                div.className = 'categoryItem font1'
                 div.innerHTML = `
             <a href="search.html?category=${item}">
                 <img src="./assets/c-${index + 1}.png" alt="" srcset="">
-                <div class="categoryName">${item}</div>
+                ${item}
             </a>
             `
                 menuFloatContent.appendChild(div)
             })
     })
 
+
     window.switchMenu = function () {
         document.querySelector('.menuFloatContent').classList.toggle('hidden')
 
     }
+
 
 </script>
 

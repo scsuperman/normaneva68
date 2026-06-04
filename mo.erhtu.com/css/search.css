@@ -3,12 +3,11 @@
 
 .searchPage {
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background-image: url(../assets/di.jpg);
-  background-size: cover;
-  background-position: center;
   .header {
     width: 100%;
     .top-bar {
@@ -16,8 +15,7 @@
       gap: 10px;
       justify-content: space-between;
       padding: 10px;
-      /* background-color: var(--color-background1); */
-      background-image: url(../assets/di.jpg);
+      background-color: var(--color-background1);
       .logo {
         display: flex;
         img {
@@ -52,16 +50,14 @@
   }
   .category{
     color: var(--color-background-light);
-    padding:0 20px;
-    padding-top: 10px;
-
+    padding:20px;
   }
   .searchFloatContent {
     position: relative;
     flex-grow: 1;
     display:grid;
     grid-auto-rows: 200px;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(8, 1fr);
     grid-gap: 20px;
     padding: 20px;
     justify-items: center;
@@ -105,6 +101,14 @@
         /* 毛玻璃背景 */
         backdrop-filter: blur(10px);
         position:relative;
+
+        &:nth-child(12n - 11),
+          &:nth-child(12n - 10),
+          &:nth-child(12n - 9),
+          &:nth-child(12n - 8) {
+            grid-row: span 1;
+            grid-column: span 2;
+          }
         
         img{
             width: 100%;
@@ -115,18 +119,20 @@
         }
         .gameTitle {
             position: absolute;
-            bottom: 0;
-            color: var(--color-background-light);
+            bottom: 4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            padding: 20px;
+            text-align: center;
             background: rgba(0, 0, 0, 0.5);
-            padding: 10px 2px;
-            border-radius: 4px;
-    
-            /* 单行超出省略 */
-            width: 100%;
+            border-radius: calc(infinity * 1px);
+
+            color:white;
+            /* 超出一行省略号 */
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            text-align: center;
           }
         
 

@@ -19,7 +19,7 @@
     font-size: 4rem;
     font-weight: 800;
   }
-    #playPage .introduce {
+    #playPageId .introduce {
       margin: 0;
       margin: initial;
       flex-wrap: nowrap;
@@ -30,33 +30,33 @@
       justify-content: initial;
     }
 
-      #playPage .introduce .gameBanner {
+      #playPageId .introduce .gameBanner {
         flex-shrink: 0;
         padding: 0 10px;
         width: 100%;
       }
 
-        #playPage .introduce .gameBanner img {
+        #playPageId .introduce .gameBanner img {
           width: 100%;
         }
-    #playPage .message {
+    #playPageId .message {
       padding: 0 10px;
       width: 100%;
       max-width: 1000px;
     }
-      #playPage .message .bgdContent {
+      #playPageId .message .bgdContent {
         justify-content: space-evenly;
 
 
         gap: 10px;
       }
-        #playPage .message .bgdContent .title {
+        #playPageId .message .bgdContent .title {
           text-align: center;
         }
-        #playPage .message .bgdContent .category {
+        #playPageId .message .bgdContent .category {
           font-size: 1.8rem;
         }
-        #playPage .message .bgdContent .pubDate {
+        #playPageId .message .bgdContent .pubDate {
           max-width: 90%;
           overflow: visible;
           overflow: initial;
@@ -64,9 +64,9 @@
           white-space: wrap;
           text-align: center;
         }
-    #playPage .SimilarGame {
+    #playPageId .SimilarGame {
       grid-auto-rows: initial;
-      grid-template-columns: repeat(5, 1fr);
-      grid-gap: 5px;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 20px;
     }
 }

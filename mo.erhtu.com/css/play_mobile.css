@@ -19,7 +19,7 @@
     font-size: 4rem;
     font-weight: 800;
   }
-  #playPage {
+  #playPageId {
     .introduce {
       margin: initial;
       flex-wrap: nowrap;
@@ -65,8 +65,8 @@
     }
     .SimilarGame {
       grid-auto-rows: initial;
-      grid-template-columns: repeat(5, 1fr);
-      grid-gap: 5px;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 20px;
     }
   }
 }
