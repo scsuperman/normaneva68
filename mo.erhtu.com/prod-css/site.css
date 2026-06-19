@@ -1,0 +1,733 @@
+/* ==========================================================================
+   MOM GAMES - modern responsive design system
+   ========================================================================== */
+:root {
+  --bg: #0e1018;
+  --bg-elev: #161a26;
+  --bg-elev-2: #1e2334;
+  --border: #283047;
+  --text: #eef1f8;
+  --text-muted: #9aa3bd;
+  --accent: #7c5cff;
+  --accent-2: #00d4ff;
+  --accent-grad: linear-gradient(135deg, #7c5cff 0%, #00d4ff 100%);
+  --danger: #ff4d6d;
+  --radius: 14px;
+  --radius-sm: 10px;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --maxw: 1200px;
+  --header-h: 64px;
+  font-size: 16px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(14, 16, 24, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.site-header__inner {
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+
+.brand img {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+}
+
+.brand span {
+  background: var(--accent-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.main-nav {
+  display: flex;
+  gap: 4px;
+  margin-left: 8px;
+  flex: 1;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.main-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.main-nav a {
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s;
+}
+
+.main-nav a:hover,
+.main-nav a.is-active {
+  color: var(--text);
+  background: var(--bg-elev-2);
+}
+
+.header-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-elev-2);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 8px 14px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  transition: border-color 0.2s;
+}
+
+.header-search:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.header-search svg {
+  width: 18px;
+  height: 18px;
+}
+
+.header-search span {
+  font-size: 0.9rem;
+}
+
+.nav-toggle {
+  display: none;
+  background: var(--bg-elev-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  color: var(--text);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  margin: 24px 0;
+  padding: 48px 28px;
+  border-radius: var(--radius);
+  background: radial-gradient(120% 140% at 0% 0%, rgba(124, 92, 255, 0.35), transparent 55%),
+    radial-gradient(120% 140% at 100% 100%, rgba(0, 212, 255, 0.28), transparent 55%),
+    var(--bg-elev);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.hero h1 {
+  font-size: clamp(1.7rem, 4vw, 2.8rem);
+  line-height: 1.15;
+  max-width: 720px;
+}
+
+.hero p {
+  margin-top: 12px;
+  color: var(--text-muted);
+  max-width: 620px;
+  font-size: 1.02rem;
+}
+
+.hero .btn {
+  margin-top: 22px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-weight: 700;
+  background: var(--accent-grad);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 6px 18px rgba(124, 92, 255, 0.4);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(124, 92, 255, 0.55);
+}
+
+.btn--ghost {
+  background: var(--bg-elev-2);
+  border: 1px solid var(--border);
+  box-shadow: none;
+  color: var(--text);
+}
+
+.btn--ghost:hover {
+  border-color: var(--accent);
+  box-shadow: none;
+}
+
+/* ---------- Sections ---------- */
+.section {
+  margin: 40px 0;
+}
+
+.section__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  gap: 12px;
+}
+
+.section__head h2 {
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section__head h2::before {
+  content: "";
+  width: 6px;
+  height: 22px;
+  border-radius: 3px;
+  background: var(--accent-grad);
+}
+
+.more-link {
+  color: var(--accent-2);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.more-link:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Game grid (horizontal scroll row) ---------- */
+
+/* 外层 section 不再 padding，由 .container 控制左缘对齐 */
+.game-grid-wrap {
+  /* 让滚动条延伸到屏幕边缘但内容从 container 左边开始 */
+  overflow-x: auto;
+  overflow-y: visible;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+  /* 内边距：左=container 的 padding，右留出一截提示"还有更多" */
+  padding-bottom: 8px;
+  /* 负 margin 抵消 container 的 padding，让滚动条贴边 */
+  margin-left: 0;
+  margin-right: 0;
+  /* 滚动惯性 */
+  -webkit-overflow-scrolling: touch;
+}
+
+.game-grid-wrap::-webkit-scrollbar {
+  height: 4px;
+}
+
+.game-grid-wrap::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.game-grid-wrap::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 999px;
+}
+
+.game-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 12px;
+  /* 左对齐，不拉伸 */
+  justify-content: flex-start;
+  align-items: flex-start;
+  /* 让行宽撑满滚动容器 */
+  width: max-content;
+  min-width: 100%;
+}
+
+/* 正方形卡片，固定宽度 */
+.game-card {
+  flex: 0 0 130px;
+  width: 130px;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  transition: transform 0.18s, border-color 0.18s, box-shadow 0.18s;
+  position: relative;
+}
+
+.game-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+}
+
+/* 正方形缩略图 */
+.game-card__thumb {
+  display: block;
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  object-position: center;
+  background: var(--bg-elev-2);
+  flex-shrink: 0;
+}
+
+.game-card__title {
+  width: 130px;
+  padding: 7px 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+}
+
+.game-card__badge {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  font-size: 0.65rem;
+  padding: 2px 6px;
+  border-radius: 999px;
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+}
+
+/* ---------- Ad slot ---------- */
+.ad-slot {
+  margin: 28px auto;
+  text-align: center;
+}
+
+.ad-slot__label {
+  font-size: 0.65rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.ad-slot ins {
+  display: block;
+}
+
+/* ---------- Breadcrumb ---------- */
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 20px 0;
+}
+
+.breadcrumb a:hover {
+  color: var(--accent-2);
+}
+
+.breadcrumb span {
+  color: var(--text);
+}
+
+/* ---------- Game detail (play) ---------- */
+.play-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 24px;
+  align-items: start;
+  margin: 20px 0 40px;
+}
+
+.game-stage {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.game-stage__frame {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  width: 100%;
+  background: #000;
+}
+
+.game-stage__frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.game-cover {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+}
+
+.game-cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 10, 18, 0.62);
+  backdrop-filter: blur(2px);
+}
+
+.game-cover > * {
+  position: relative;
+  z-index: 1;
+}
+
+.game-cover__title {
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  font-weight: 800;
+  text-align: center;
+  padding: 0 16px;
+}
+
+.play-btn-big {
+  font-size: 1.1rem;
+  padding: 14px 32px;
+}
+
+.game-meta {
+  padding: 18px;
+}
+
+.game-meta h1 {
+  font-size: 1.5rem;
+  margin-bottom: 6px;
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.tag {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  background: var(--bg-elev-2);
+  border: 1px solid var(--border);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.prose {
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+.prose h2 {
+  color: var(--text);
+  font-size: 1.15rem;
+  margin: 20px 0 8px;
+}
+
+.prose p {
+  margin-bottom: 10px;
+}
+
+.sidebar {
+  position: sticky;
+  top: calc(var(--header-h) + 16px);
+}
+
+/* ---------- Search ---------- */
+.search-wrap {
+  margin: 28px 0;
+}
+
+.search-input {
+  width: 100%;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 14px 20px;
+  color: var(--text);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search-input:focus {
+  border-color: var(--accent);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 16px;
+  color: var(--text-muted);
+}
+
+.empty-state h2 {
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+/* ---------- SEO content block ---------- */
+.seo-block {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  margin: 40px 0;
+  color: var(--text-muted);
+}
+
+.seo-block h2 {
+  color: var(--text);
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+}
+
+.seo-block p {
+  margin-bottom: 12px;
+}
+
+/* ---------- Legal pages ---------- */
+.legal {
+  max-width: 820px;
+  margin: 32px auto;
+}
+
+.legal h1 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.legal h2 {
+  font-size: 1.3rem;
+  margin: 26px 0 10px;
+}
+
+.legal h3 {
+  font-size: 1.05rem;
+  margin: 18px 0 6px;
+}
+
+.legal p,
+.legal li {
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.legal ul {
+  padding-left: 22px;
+}
+
+.legal a {
+  color: var(--accent-2);
+}
+
+.legal a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  border-top: 1px solid var(--border);
+  background: var(--bg-elev);
+  margin-top: 56px;
+  padding: 36px 0 28px;
+}
+
+.footer-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: space-between;
+}
+
+.footer-cats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  max-width: 640px;
+}
+
+.footer-cats a {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+.footer-cats a:hover {
+  color: var(--accent-2);
+}
+
+.footer-bottom {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 16px;
+}
+
+.footer-links a:hover {
+  color: var(--accent-2);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 860px) {
+  .play-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+  }
+}
+
+@media (max-width: 680px) {
+  .main-nav {
+    position: fixed;
+    inset: var(--header-h) 0 auto 0;
+    flex-direction: column;
+    background: var(--bg-elev);
+    border-bottom: 1px solid var(--border);
+    padding: 8px;
+    gap: 2px;
+    transform: translateY(-120%);
+    transition: transform 0.25s ease;
+    overflow-y: auto;
+    max-height: calc(100vh - var(--header-h));
+    z-index: 99;
+  }
+
+  .main-nav.is-open {
+    transform: translateY(0);
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  .header-search span {
+    display: none;
+  }
+
+  .hero {
+    padding: 32px 20px;
+  }
+
+  /* 手机端卡片略小：100px 正方形，3 张可视 + 半张提示更多 */
+  .game-card {
+    flex: 0 0 100px;
+    width: 100px;
+  }
+
+  .game-card__thumb {
+    width: 100px;
+    height: 100px;
+  }
+
+  .game-card__title {
+    width: 100px;
+    font-size: 0.68rem;
+    padding: 5px 6px;
+  }
+
+  .game-grid {
+    gap: 8px;
+  }
+}

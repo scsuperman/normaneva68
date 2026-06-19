@@ -1,109 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>MOM|GAMES</title>
-    <link rel="icon" href="logo.png" />
-    <link rel="stylesheet" href="prod-css/search.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Games - MOM GAMES</title>
+  <meta name="description" content="Search 198+ free online games at MOM GAMES. Find your favourite game and play instantly in your browser.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://mo.erhtu.com/search.html">
+  <link rel="icon" href="logo.png">
+  <link rel="stylesheet" href="prod-css/site.css">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="MOM GAMES">
+  <meta property="og:title" content="Search Games - MOM GAMES">
+  <meta property="og:description" content="Search 198+ free online games at MOM GAMES. Find your favourite game and play instantly in your browser.">
+  <meta property="og:url" content="https://mo.erhtu.com/search.html">
+  <meta property="og:image" content="https://mo.erhtu.com/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Search Games - MOM GAMES">
+  <meta name="twitter:description" content="Search 198+ free online games at MOM GAMES. Find your favourite game and play instantly in your browser.">
+  <meta name="twitter:image" content="https://mo.erhtu.com/logo.png">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5899441324359347" crossorigin="anonymous"></script>
 </head>
-
 <body>
-    <div class="searchPage" id="searchPage">
-
-        <header class="header">
-            <div class="top-bar">
-                <a href="./" class="logo">
-                    <img src="logo.png" alt="" srcset="">
-                </a>
-
-                <input id="search_name" class="font2" type="text" placeholder="Search Game" oninput="search_game()" />
-                <!-- <div class="close-icons" onclick="closeSearchFloatContent()">
-                    <img class="icon" src="./assets/Close.svg" alt="" srcset="">
-                </div> -->
-            </div>
-        </header>
-        <h2 class="category font3"></h2>
-        <div class="searchFloatContent">
-        </div>
-
-    </div>
-</body>
-<script type="module">
-    import { getGamesListApi, getGamesListCategory } from "./assets/js/business.js";
-
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get("category")) {
-        document.querySelector('.category').innerHTML = `CATEGORY: ${urlParams.get("category")}`;
-    }
-
-    let category = getGamesListCategory.indexOf(urlParams.get("category")) + 1;
-
-
-    window.search_game = async function () {
-        let searchValue = search_name.value.trim();
-        document.querySelector('.searchFloatContent').innerHTML = `
-            <div class="loading">
-                <img  src="./assets/loading.svg" alt="">
-            </div>`;
-
-            let filterGameList
-        if (urlParams.get("category")) {
-             filterGameList = await getGamesListApi(Object.assign({ num: 100, name: searchValue }, { category }));
-        } else {
-             filterGameList = await getGamesListApi({ num: 100, name: searchValue });
-        }
-
-        if (filterGameList.length != 0) {
-            document.querySelector('.searchFloatContent').innerHTML = "";
-            filterGameList.forEach((item) => {
-                var div = document.createElement("div");
-                div.className = "search_gameItem";
-                div.onclick = function () {
-                    window.location.href = `./play.html?title=${item.title}`
-                }
-                div.innerHTML = ` 
-                <img  src="${item.thumb}" alt="" />
-                <div class="gameTitle font08">${item.title}</div>
-              `;
-                document.getElementsByClassName("searchFloatContent")[0].appendChild(div);
-            });
-        } else {
-            console.log("nodata");
-            document.querySelector('.searchFloatContent').innerHTML = `
-                <div class="nodata font3">
-                  <h1>No related content found.</h1>
-                  <h4>Try searching for something else or playing one of these awesome games.</h4>
-                </div>
-          `;
-        }
-    }
-    search_game()
-
-    window.closeSearchFloatContent = function () {
-        search_name.value = "";
-        search_game()
-    }
-
-
-
-
-
-
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="index.html" aria-label="MOM GAMES home">
+      <img src="logo.png" alt="MOM GAMES logo">
+      <span>MOM GAMES</span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="toggleNav(this)">&#9776;</button>
+    <nav class="main-nav" id="mainNav">
+        <a href="category/puzzle.html">Puzzle</a>
+        <a href="category/arcade.html">Arcade</a>
+        <a href="category/sports.html">Sports</a>
+        <a href="category/hypercasual.html">Hypercasual</a>
+        <a href="category/girls.html">Girls</a>
+        <a href="category/shooting.html">Shooting</a>
+        <a href="category/racing.html">Racing</a>
+        <a href="category/stickman.html">Stickman</a>
+        <a href="category/multiplayer.html">Multiplayer</a>
+        <a href="category/clicker.html">Clicker</a>
+        <a href="category/soccer.html">Soccer</a>
+        <a href="category/cooking.html">Cooking</a>
+        <a href="category/adventure.html">Adventure</a>
+        <a href="category/bejeweled.html">Bejeweled</a>
+        <a href="category/boys.html">Boys</a>
+        <a href="category/action.html">Action</a>
+        <a href="category/io.html">IO</a>
+        <a href="category/3d.html">3D</a>
+    </nav>
+    <a class="header-search" href="search.html" aria-label="Search games">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg>
+      <span>Search</span>
+    </a>
+  </div>
+</header>
+<script>
+  function toggleNav(btn){var n=document.getElementById('mainNav');var o=n.classList.toggle('is-open');btn.setAttribute('aria-expanded',o);}
 </script>
+<main class="container">
+  <div class="search-wrap">
+    <h1 style="font-size:1.6rem;margin-bottom:14px;">Search Games</h1>
+    <input id="searchInput" class="search-input" type="search" placeholder="Type a game name..." autocomplete="off" aria-label="Search games">
+  </div>
+  <p id="searchHint" style="color:var(--text-muted);margin-bottom:16px;"></p>
+  <div class="game-grid" id="results"></div>
+  <div id="empty"></div>
+</main>
+<script>
+  function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
 
-<!-- gtag -->
+  var allGames=[];
+  var params=new URLSearchParams(location.search);
+  var category=params.get("category");
+  var q=params.get("q")||"";
 
-      <!-- Google tag (gtag.js) -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-EESGWMGEC0"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+  function card(g){
+    return '<a class="game-card" href="game/'+g.slug+'.html">'+
+      '<img class="game-card__thumb" src="'+esc(g.thumb)+'" alt="'+esc(g.title)+'" loading="lazy" width="512" height="384">'+
+      '<span class="game-card__badge">'+esc(g.category)+'</span>'+
+      '<div class="game-card__title">'+esc(g.title)+'</div></a>';
+  }
 
-        gtag('config', 'G-EESGWMGEC0');
-      </script>
-        
+  function render(list){
+    var results=document.getElementById("results");
+    var empty=document.getElementById("empty");
+    if(!list.length){
+      results.innerHTML="";
+      empty.innerHTML='<div class="empty-state"><h2>No games found</h2><p>Try a different keyword or browse our categories.</p></div>';
+      return;
+    }
+    empty.innerHTML="";
+    results.innerHTML=list.slice(0,120).map(card).join("");
+  }
 
+  function search(){
+    var term=(document.getElementById("searchInput").value||"").trim().toLowerCase();
+    var hint=document.getElementById("searchHint");
+    var list=allGames;
+    if(category){list=list.filter(function(g){return (g.category||"").toLowerCase()===category.toLowerCase();});}
+    if(term){list=list.filter(function(g){return (g.title||"").toLowerCase().indexOf(term)>-1;});}
+    hint.textContent=(category?("Category: "+category+" \u00b7 "):"")+list.length+" game(s)";
+    render(list);
+  }
+
+  fetch("assets/js/games.public.json").then(function(r){return r.json();}).then(function(d){
+    allGames=d;
+    var input=document.getElementById("searchInput");
+    input.value=q;
+    input.addEventListener("input",search);
+    search();
+  });
+</script>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="index.html">
+          <img src="logo.png" alt="MOM GAMES logo">
+          <span>MOM GAMES</span>
+        </a>
+        <p style="color:var(--text-muted);max-width:320px;margin-top:10px;font-size:.9rem;">
+          Free online HTML5 games you can play instantly in your browser, on any device. No downloads, no installs.
+        </p>
+      </div>
+      <nav class="footer-cats" aria-label="Game categories">
+          <a href="category/puzzle.html">Puzzle</a>
+          <a href="category/arcade.html">Arcade</a>
+          <a href="category/sports.html">Sports</a>
+          <a href="category/hypercasual.html">Hypercasual</a>
+          <a href="category/girls.html">Girls</a>
+          <a href="category/shooting.html">Shooting</a>
+          <a href="category/racing.html">Racing</a>
+          <a href="category/stickman.html">Stickman</a>
+          <a href="category/multiplayer.html">Multiplayer</a>
+          <a href="category/clicker.html">Clicker</a>
+          <a href="category/soccer.html">Soccer</a>
+          <a href="category/cooking.html">Cooking</a>
+          <a href="category/adventure.html">Adventure</a>
+          <a href="category/bejeweled.html">Bejeweled</a>
+          <a href="category/boys.html">Boys</a>
+          <a href="category/action.html">Action</a>
+          <a href="category/io.html">IO</a>
+          <a href="category/3d.html">3D</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 MOM GAMES. All rights reserved.</span>
+      <nav class="footer-links">
+        <a href="PrivacyPolicy.html">Privacy Policy</a>
+        <a href="TermsofService.html">Terms of Service</a>
+        <a href="search.html">Search</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EESGWMGEC0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-EESGWMGEC0');
+</script>
+</body>
 </html>
